@@ -1,4 +1,4 @@
-# Form implementation generated from reading ui file '.\design.ui'
+# Form implementation generated from reading ui file 'designs/design.ui'
 #
 # Created by: PyQt6 UI code generator 6.6.1
 #
@@ -16,7 +16,7 @@ class Ui_MainWindow(object):
         self.centralwidget = QtWidgets.QWidget(parent=MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.formLayoutWidget = QtWidgets.QWidget(parent=self.centralwidget)
-        self.formLayoutWidget.setGeometry(QtCore.QRect(230, 210, 281, 111))
+        self.formLayoutWidget.setGeometry(QtCore.QRect(230, 210, 251, 131))
         self.formLayoutWidget.setObjectName("formLayoutWidget")
         self.formLayout = QtWidgets.QFormLayout(self.formLayoutWidget)
         self.formLayout.setContentsMargins(0, 0, 0, 0)
