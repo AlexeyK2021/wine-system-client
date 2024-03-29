@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/MIREA_VKR.iml" filepath="$PROJECT_DIR$/.idea/MIREA_VKR.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/MIREA_VKR_client.iml" filepath="$PROJECT_DIR$/.idea/MIREA_VKR_client.iml" />
     </modules>
   </component>
 </project>

@@ -3,6 +3,7 @@ import sys
 from PyQt6 import QtWidgets
 from PyQt6.QtWidgets import QDialog, QMainWindow
 
+from ApiController import auth
 from pages.loginPage import Ui_LoginWindow
 from pages.loginPageDialog import Ui_ErrorLoginDialog
 
@@ -17,7 +18,9 @@ class LoginPage(QMainWindow):
 
     def login(self, login, passwd):
         self.ui.label.adjustSize()
-        if login != "alexey" or passwd != "alexey":
+        if auth(login, passwd):
+            pass
+        else:
             dlg = LoginPageDialog()
             dlg.exec()
 
