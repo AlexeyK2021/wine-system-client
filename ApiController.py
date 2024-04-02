@@ -1,12 +1,8 @@
 import requests
 
-API_IP = "127.0.0.1"
-API_URL = f"http://{API_IP}:5000/api/"
+from config import API_PORT, API_IP
 
-
-def set_ip(ip):
-    global API_IP
-    API_IP = ip
+API_URL = f"http://{API_IP}:{API_PORT}/api/"
 
 
 def auth(login, passwd):
@@ -15,7 +11,7 @@ def auth(login, passwd):
 
 
 def check_admin(login):
-    result = requests.get(API_URL + f"auth/user/{login}")
+    result = requests.get(API_URL + f"user/check/{login}")
     if result.status_code == 200:
         return result.json()["admin"]
     return False

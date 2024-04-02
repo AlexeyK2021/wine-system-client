@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>AdminWindow</class>
+ <widget class="QMainWindow" name="AdminWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget"/>
+  <widget class="QStatusBar" name="statusbar"/>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="sensors">
+    <property name="title">
+     <string>Датчики</string>
+    </property>
+    <addaction name="add_sensor"/>
+   </widget>
+   <widget class="QMenu" name="actuators">
+    <property name="acceptDrops">
+     <bool>false</bool>
+    </property>
+    <property name="title">
+     <string>Актуаторы</string>
+    </property>
+    <property name="toolTipsVisible">
+     <bool>false</bool>
+    </property>
+    <addaction name="add_actuator"/>
+   </widget>
+   <widget class="QMenu" name="params">
+    <property name="title">
+     <string>Параметры</string>
+    </property>
+    <addaction name="add_param"/>
+   </widget>
+   <widget class="QMenu" name="users">
+    <property name="title">
+     <string>Пользователи</string>
+    </property>
+    <addaction name="add_user"/>
+   </widget>
+   <widget class="QMenu" name="tanks">
+    <property name="acceptDrops">
+     <bool>true</bool>
+    </property>
+    <property name="title">
+     <string>Емкости</string>
+    </property>
+    <addaction name="add_tank"/>
+   </widget>
+   <addaction name="tanks"/>
+   <addaction name="sensors"/>
+   <addaction name="actuators"/>
+   <addaction name="params"/>
+   <addaction name="users"/>
+  </widget>
+  <action name="add_tank">
+   <property name="text">
+    <string>Добавить</string>
+   </property>
+  </action>
+  <action name="add_sensor">
+   <property name="text">
+    <string>Добавить</string>
+   </property>
+  </action>
+  <action name="add_actuator">
+   <property name="text">
+    <string>Добавить</string>
+   </property>
+  </action>
+  <action name="add_param">
+   <property name="text">
+    <string>Добавить</string>
+   </property>
+  </action>
+  <action name="add_user">
+   <property name="checkable">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Добавить</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

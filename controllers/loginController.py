@@ -1,23 +1,29 @@
 from PyQt6.QtWidgets import QDialog, QMainWindow
 
-from ApiController import auth, check_admin, set_ip
+from ApiController import auth, check_admin
 from pages.loginPage import Ui_LoginWindow
 from pages.loginPageDialog import Ui_ErrorLoginDialog
 
 
 class LoginPage(QMainWindow):
+    on_admin_enter = None
+
     def __init__(self):
         super(LoginPage, self).__init__()
         self.ui = Ui_LoginWindow()
         self.ui.setupUi(self)
 
-        self.ui.log_in_button.clicked.connect(lambda _: self.login(self.ui.login.text(), self.ui.passwd.text(), self.ui.server_ip.text()))
-        self.ui.clear_button.clicked.connect(lambda _: self.clear_creds())
+        self.ui.log_in_button.clicked.connect(
+            lambda: self.login(self.ui.login.text(), self.ui.passwd.text()))
+        self.ui.clear_button.clicked.connect(lambda: self.clear_creds())
 
-    def login(self, login, passwd, ip):
+    def login(self, login, passwd):
         self.ui.label.adjustSize()
         if auth(login, passwd):
-            print("Admin:" + str(check_admin(login)))
+            if check_admin(login):
+                self.on_admin_enter()
+            else:
+                pass  # user page
         else:
             dlg = LoginPageDialog()
             dlg.exec()
