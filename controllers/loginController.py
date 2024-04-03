@@ -1,8 +1,19 @@
+from PyQt6 import QtWebSockets, QtNetwork
 from PyQt6.QtWidgets import QDialog, QMainWindow
 
-from ApiController import auth, check_admin
+from ApiController import auth, check_admin, API_URL
 from pages.loginPage import Ui_LoginWindow
 from pages.loginPageDialog import Ui_ErrorLoginDialog
+
+import asyncio
+import websockets
+import hashlib
+
+
+def hash_text(text):
+    hash_object = hashlib.sha256(text.encode())
+    hex_dig = hash_object.hexdigest()
+    return hex_dig
 
 
 class LoginPage(QMainWindow):
@@ -19,7 +30,7 @@ class LoginPage(QMainWindow):
 
     def login(self, login, passwd):
         self.ui.label.adjustSize()
-        if auth(login, passwd):
+        if auth(login, hash_text(passwd)):
             if check_admin(login):
                 self.on_admin_enter()
             else:

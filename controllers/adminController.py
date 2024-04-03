@@ -53,3 +53,4 @@ class AddTankDialog(QDialog):
         self.ui = Ui_AddTankDialog()
         # Run the .setupUi() method to show the GUI
         self.ui.setupUi(self)
+        self.ui.buttonBox.accepted.connect(lambda: print(self.ui.tank_name.text()))
