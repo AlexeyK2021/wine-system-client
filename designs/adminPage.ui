@@ -6,95 +6,160 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>883</width>
+    <height>619</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
-  <widget class="QWidget" name="centralwidget"/>
-  <widget class="QStatusBar" name="statusbar"/>
-  <widget class="QMenuBar" name="menubar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>800</width>
-     <height>22</height>
-    </rect>
-   </property>
-   <widget class="QMenu" name="sensors">
-    <property name="title">
-     <string>Датчики</string>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QTabWidget" name="tabWidget">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>881</width>
+      <height>601</height>
+     </rect>
     </property>
-    <addaction name="add_sensor"/>
-   </widget>
-   <widget class="QMenu" name="actuators">
-    <property name="acceptDrops">
-     <bool>false</bool>
-    </property>
-    <property name="title">
-     <string>Актуаторы</string>
-    </property>
-    <property name="toolTipsVisible">
-     <bool>false</bool>
-    </property>
-    <addaction name="add_actuator"/>
-   </widget>
-   <widget class="QMenu" name="params">
-    <property name="title">
-     <string>Параметры</string>
-    </property>
-    <addaction name="add_param"/>
-   </widget>
-   <widget class="QMenu" name="users">
-    <property name="title">
-     <string>Пользователи</string>
-    </property>
-    <addaction name="add_user"/>
-   </widget>
-   <widget class="QMenu" name="tanks">
-    <property name="acceptDrops">
+    <property name="mouseTracking">
      <bool>true</bool>
     </property>
-    <property name="title">
-     <string>Емкости</string>
+    <property name="currentIndex">
+     <number>1</number>
     </property>
-    <addaction name="add_tank"/>
+    <widget class="QWidget" name="main">
+     <attribute name="title">
+      <string>Главная</string>
+     </attribute>
+     <widget class="QTreeWidget" name="treeWidget">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>881</width>
+        <height>581</height>
+       </rect>
+      </property>
+      <column>
+       <property name="text">
+        <string notr="true">1</string>
+       </property>
+      </column>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tanks">
+     <property name="mouseTracking">
+      <bool>true</bool>
+     </property>
+     <attribute name="title">
+      <string>Ёмкости</string>
+     </attribute>
+     <widget class="QWidget" name="horizontalLayoutWidget">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>341</width>
+        <height>194</height>
+       </rect>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_2">
+       <item>
+        <widget class="QListWidget" name="tanks_list"/>
+       </item>
+       <item>
+        <layout class="QVBoxLayout" name="verticalLayout_2">
+         <property name="spacing">
+          <number>8</number>
+         </property>
+         <property name="sizeConstraint">
+          <enum>QLayout::SetDefaultConstraint</enum>
+         </property>
+         <property name="bottomMargin">
+          <number>0</number>
+         </property>
+         <item>
+          <widget class="QPushButton" name="add_tank">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="autoFillBackground">
+            <bool>false</bool>
+           </property>
+           <property name="text">
+            <string>Добавить</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="edit_tank">
+           <property name="text">
+            <string>Изменить</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="del_tank">
+           <property name="text">
+            <string>Удалить</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="verticalSpacer">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>40</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="sensors">
+     <property name="mouseTracking">
+      <bool>true</bool>
+     </property>
+     <attribute name="title">
+      <string>Датчики</string>
+     </attribute>
+    </widget>
+    <widget class="QWidget" name="actuators">
+     <attribute name="title">
+      <string>Исполнительные механизмы</string>
+     </attribute>
+    </widget>
+    <widget class="QWidget" name="params">
+     <attribute name="title">
+      <string>Параметры</string>
+     </attribute>
+    </widget>
+    <widget class="QWidget" name="users">
+     <attribute name="title">
+      <string>Пользователи</string>
+     </attribute>
+    </widget>
    </widget>
-   <addaction name="tanks"/>
-   <addaction name="sensors"/>
-   <addaction name="actuators"/>
-   <addaction name="params"/>
-   <addaction name="users"/>
   </widget>
-  <action name="add_tank">
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionon_save">
    <property name="text">
-    <string>Добавить</string>
+    <string>on_save</string>
    </property>
-  </action>
-  <action name="add_sensor">
-   <property name="text">
-    <string>Добавить</string>
-   </property>
-  </action>
-  <action name="add_actuator">
-   <property name="text">
-    <string>Добавить</string>
-   </property>
-  </action>
-  <action name="add_param">
-   <property name="text">
-    <string>Добавить</string>
-   </property>
-  </action>
-  <action name="add_user">
-   <property name="checkable">
-    <bool>false</bool>
-   </property>
-   <property name="text">
-    <string>Добавить</string>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
    </property>
   </action>
  </widget>
