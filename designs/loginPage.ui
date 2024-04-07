@@ -20,7 +20,7 @@
       <x>230</x>
       <y>210</y>
       <width>271</width>
-      <height>137</height>
+      <height>139</height>
      </rect>
     </property>
     <layout class="QFormLayout" name="formLayout">
@@ -81,11 +81,28 @@
        </property>
       </widget>
      </item>
+     <item row="3" column="0">
+      <widget class="QPushButton" name="pushButton">
+       <property name="text">
+        <string>DEBUG</string>
+       </property>
+       <property name="checkable">
+        <bool>false</bool>
+       </property>
+      </widget>
+     </item>
     </layout>
    </widget>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
+ <tabstops>
+  <tabstop>login</tabstop>
+  <tabstop>passwd</tabstop>
+  <tabstop>log_in_button</tabstop>
+  <tabstop>clear_button</tabstop>
+  <tabstop>pushButton</tabstop>
+ </tabstops>
  <resources/>
  <connections>
   <connection>

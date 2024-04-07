@@ -18,6 +18,7 @@ def hash_text(text):
 
 class LoginPage(QMainWindow):
     on_admin_enter = None
+    on_sandbox = None
 
     def __init__(self):
         super(LoginPage, self).__init__()
@@ -27,6 +28,8 @@ class LoginPage(QMainWindow):
         self.ui.log_in_button.clicked.connect(
             lambda: self.login(self.ui.login.text(), self.ui.passwd.text()))
         self.ui.clear_button.clicked.connect(lambda: self.clear_creds())
+
+        self.ui.pushButton.clicked.connect(lambda: self.on_sandbox())
 
     def login(self, login, passwd):
         self.ui.label.adjustSize()
