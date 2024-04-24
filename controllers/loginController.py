@@ -1,12 +1,9 @@
-from PyQt6 import QtWebSockets, QtNetwork
 from PyQt6.QtWidgets import QDialog, QMainWindow
 
-from ApiController import auth, check_admin, API_URL
+from controllers.apiController import auth, check_admin
 from pages.loginPage import Ui_LoginWindow
 from pages.loginPageDialog import Ui_ErrorLoginDialog
 
-import asyncio
-import websockets
 import hashlib
 
 
@@ -18,6 +15,7 @@ def hash_text(text):
 
 class LoginPage(QMainWindow):
     on_admin_enter = None
+    on_operator_enter = None
     on_sandbox = None
 
     def __init__(self):
@@ -33,14 +31,17 @@ class LoginPage(QMainWindow):
 
     def login(self, login, passwd):
         self.ui.label.adjustSize()
-        if auth(login, hash_text(passwd)):
+        result = auth(login, hash_text(passwd))
+        if result == 1:
             if check_admin(login):
                 self.on_admin_enter()
             else:
-                pass  # user page
-        else:
+                self.on_operator_enter()
+        elif result == 0:
             dlg = LoginPageDialog()
             dlg.exec()
+        else:
+            print("Server unavailable")
 
     def clear_creds(self):
         self.ui.login.setText("")

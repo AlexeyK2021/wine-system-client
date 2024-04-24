@@ -58,6 +58,10 @@ class Ui_LoginWindow(object):
 		self.retranslateUi(LoginWindow)
 		self.passwd.returnPressed.connect(self.log_in_button.click) # type: ignore
 		QtCore.QMetaObject.connectSlotsByName(LoginWindow)
+		LoginWindow.setTabOrder(self.login, self.passwd)
+		LoginWindow.setTabOrder(self.passwd, self.log_in_button)
+		LoginWindow.setTabOrder(self.log_in_button, self.clear_button)
+		LoginWindow.setTabOrder(self.clear_button, self.pushButton)
 
 	def retranslateUi(self, LoginWindow):
 		_translate = QtCore.QCoreApplication.translate

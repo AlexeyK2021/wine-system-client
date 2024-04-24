@@ -4,6 +4,7 @@ from PyQt6.QtWidgets import QStackedWidget
 
 from controllers.adminController import AdminPage
 from controllers.loginController import LoginPage
+from controllers.operatorController import OperatorPage
 from controllers.sandboxController import SandBoxPage
 
 if __name__ == '__main__':
@@ -12,12 +13,15 @@ if __name__ == '__main__':
 
     login_page = LoginPage()
     admin_page = AdminPage()
+    operator_page = OperatorPage()
     sandbox = SandBoxPage()
     login_page.on_admin_enter = lambda: win.setCurrentIndex(1)
-    login_page.on_sandbox = lambda: win.setCurrentIndex(2)
+    login_page.on_operator_enter = lambda: win.setCurrentIndex(2)
+    login_page.on_sandbox = lambda: win.setCurrentIndex(3)
 
     win.addWidget(login_page)
     win.addWidget(admin_page)
+    win.addWidget(operator_page)
     win.addWidget(sandbox)
 
     win.resize(800, 600)
