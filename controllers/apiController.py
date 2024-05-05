@@ -9,7 +9,7 @@ API_URL = f"http://{API_IP}:{API_PORT}/api/"
 def auth(login, passwd):
     if LOGIN_AS != "":
         return True
-    result = requests.get(API_URL + f"auth/{login}&{passwd}")
+    result = requests.get(API_URL + f"auth/login={login}&passwd={passwd}")
     if result.status_code == 200:
         return 1
     elif result.status_code == 401:

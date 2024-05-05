@@ -17,7 +17,7 @@ if __name__ == '__main__':
     sandbox = SandBoxPage()
     login_page.on_admin_enter = lambda: win.setCurrentIndex(1)
     login_page.on_operator_enter = lambda: win.setCurrentIndex(2)
-    login_page.on_sandbox = lambda: win.setCurrentIndex(3)
+    # login_page.on_sandbox
 
     win.addWidget(login_page)
     win.addWidget(admin_page)
