@@ -29,13 +29,13 @@
 }
 QRadioButton:indicator:checked
 {
-	image: url(:/Mnemoscheme/greenlamp.svg);
+	image: url(:/Mnemoscheme/icons/greenlamp.svg);
 	width: 15px;
 	height: 15px;
 }
 QRadioButton:indicator:unchecked
 {
-	image: url(:/Mnemoscheme/redlamp.svg);
+	image: url(:/Mnemoscheme/icons/redlamp.svg);
 	width: 15px;
 	height: 15px;
 }
@@ -73,13 +73,13 @@ QRadioButton:indicator:unchecked
 }
 QRadioButton:indicator:checked
 {
-	image: url(:/Mnemoscheme/greenlamp.svg);
+	image: url(:/Mnemoscheme/icons/greenlamp.svg);
 	width: 15px;
 	height: 15px;
 }
 QRadioButton:indicator:unchecked
 {
-	image: url(:/Mnemoscheme/redlamp.svg);
+	image: url(:/Mnemoscheme/icons/redlamp.svg);
 	width: 15px;
 	height: 15px;
 }
@@ -117,7 +117,7 @@ QRadioButton:indicator:unchecked
     <enum>Qt::RichText</enum>
    </property>
    <property name="pixmap">
-    <pixmap resource="../GUI/1234.qrc">:/Mnemoscheme/бб.svg</pixmap>
+    <pixmap>mnemo/бб.svg</pixmap>
    </property>
    <property name="scaledContents">
     <bool>true</bool>
@@ -148,13 +148,13 @@ QRadioButton:indicator:unchecked
 }
 QRadioButton:indicator:checked
 {
-	image: url(:/Mnemoscheme/greenlamp.svg);
+	image: url(:/Mnemoscheme/icons/greenlamp.svg);
 	width: 15px;
 	height: 15px;
 }
 QRadioButton:indicator:unchecked
 {
-	image: url(:/Mnemoscheme/redlamp.svg);
+	image: url(:/Mnemoscheme/icons/redlamp.svg);
 	width: 15px;
 	height: 15px;
 }
@@ -266,13 +266,13 @@ QRadioButton:indicator:unchecked
 }
 QRadioButton:indicator:checked
 {
-	image: url(:/Mnemoscheme/greenlamp.svg);
+	image: url(:/Mnemoscheme/icons/greenlamp.svg);
 	width: 15px;
 	height: 15px;
 }
 QRadioButton:indicator:unchecked
 {
-	image: url(:/Mnemoscheme/redlamp.svg);
+	image: url(:/Mnemoscheme/icons/redlamp.svg);
 	width: 15px;
 	height: 15px;
 }
@@ -310,13 +310,13 @@ QRadioButton:indicator:unchecked
 }
 QRadioButton:indicator:checked
 {
-	image: url(:/Mnemoscheme/greenlamp.svg);
+	image: url(:/Mnemoscheme/icons/greenlamp.svg);
 	width: 15px;
 	height: 15px;
 }
 QRadioButton:indicator:unchecked
 {
-	image: url(:/Mnemoscheme/redlamp.svg);
+	image: url(:/Mnemoscheme/icons/redlamp.svg);
 	width: 15px;
 	height: 15px;
 }
@@ -354,13 +354,13 @@ QRadioButton:indicator:unchecked
 }
 QRadioButton:indicator:checked
 {
-	image: url(:/Mnemoscheme/greenlamp.svg);
+	image: url(:/Mnemoscheme/icons/greenlamp.svg);
 	width: 15px;
 	height: 15px;
 }
 QRadioButton:indicator:unchecked
 {
-	image: url(:/Mnemoscheme/redlamp.svg);
+	image: url(:/Mnemoscheme/icons/redlamp.svg);
 	width: 15px;
 	height: 15px;
 }
@@ -382,9 +382,19 @@ QRadioButton:indicator:unchecked
     <bool>false</bool>
    </property>
   </widget>
+  <zorder>mnemoscheme</zorder>
+  <zorder>he_pump_lcd</zorder>
+  <zorder>he_output_lcd</zorder>
+  <zorder>he_output_lcd_2</zorder>
+  <zorder>temp_lcd</zorder>
+  <zorder>pres_lcd</zorder>
+  <zorder>he_input_lcd</zorder>
+  <zorder>co2_output_lcd</zorder>
+  <zorder>input_valve_led</zorder>
  </widget>
  <resources>
-  <include location="../GUI/1234.qrc"/>
+  <include location="1234.qrc"/>
+  <include location="1234.qrc"/>
   <include location="../GUI/1234.qrc"/>
  </resources>
  <connections/>

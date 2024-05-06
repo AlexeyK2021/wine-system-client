@@ -17,6 +17,7 @@ class OperatorPage(QMainWindow):
         self.ui = Ui_OperatorWindow()
         self.ui.setupUi(self)
         self.ui.input_valve_led.setChecked(True)
+        self.ui.tabWidget.addTab(FastFermentationWidget(), "FF")
 
         # self.ui.widget = Ui_Form()
         # self.ui.widget.setupUi(self)

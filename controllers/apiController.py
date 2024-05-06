@@ -31,3 +31,15 @@ def check_admin(login):
 
 def get_current_temperature(tank_id):
     return np.random.normal()
+
+
+def get_current_pressure(tank_id):
+    pass
+
+
+def get_current_sensors_state(tank_id):
+    pass
+
+
+def get_current_actuators_state(tank_id):
+    pass

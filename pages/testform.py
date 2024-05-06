@@ -21,13 +21,13 @@ class Ui_Form(object):
 "}\n"
 "QRadioButton:indicator:checked\n"
 "{\n"
-"	image: url(:/Mnemoscheme/greenlamp.svg);\n"
+"	image: url(:/Mnemoscheme/icons/greenlamp.svg);\n"
 "	width: 15px;\n"
 "	height: 15px;\n"
 "}\n"
 "QRadioButton:indicator:unchecked\n"
 "{\n"
-"	image: url(:/Mnemoscheme/redlamp.svg);\n"
+"	image: url(:/Mnemoscheme/icons/redlamp.svg);\n"
 "	width: 15px;\n"
 "	height: 15px;\n"
 "}\n"
@@ -45,13 +45,13 @@ class Ui_Form(object):
 "}\n"
 "QRadioButton:indicator:checked\n"
 "{\n"
-"	image: url(:/Mnemoscheme/greenlamp.svg);\n"
+"	image: url(:/Mnemoscheme/icons/greenlamp.svg);\n"
 "	width: 15px;\n"
 "	height: 15px;\n"
 "}\n"
 "QRadioButton:indicator:unchecked\n"
 "{\n"
-"	image: url(:/Mnemoscheme/redlamp.svg);\n"
+"	image: url(:/Mnemoscheme/icons/redlamp.svg);\n"
 "	width: 15px;\n"
 "	height: 15px;\n"
 "}\n"
@@ -65,7 +65,7 @@ class Ui_Form(object):
 		self.mnemoscheme.setGeometry(QtCore.QRect(0, 0, 720, 450))
 		self.mnemoscheme.setText("")
 		self.mnemoscheme.setTextFormat(QtCore.Qt.TextFormat.RichText)
-		self.mnemoscheme.setPixmap(QtGui.QPixmap(":/Mnemoscheme/бб.svg"))
+		self.mnemoscheme.setPixmap(QtGui.QPixmap("designs\\mnemo/бб.svg"))
 		self.mnemoscheme.setScaledContents(True)
 		self.mnemoscheme.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
 		self.mnemoscheme.setWordWrap(False)
@@ -78,13 +78,13 @@ class Ui_Form(object):
 "}\n"
 "QRadioButton:indicator:checked\n"
 "{\n"
-"	image: url(:/Mnemoscheme/greenlamp.svg);\n"
+"	image: url(:/Mnemoscheme/icons/greenlamp.svg);\n"
 "	width: 15px;\n"
 "	height: 15px;\n"
 "}\n"
 "QRadioButton:indicator:unchecked\n"
 "{\n"
-"	image: url(:/Mnemoscheme/redlamp.svg);\n"
+"	image: url(:/Mnemoscheme/icons/redlamp.svg);\n"
 "	width: 15px;\n"
 "	height: 15px;\n"
 "}\n"
@@ -126,13 +126,13 @@ class Ui_Form(object):
 "}\n"
 "QRadioButton:indicator:checked\n"
 "{\n"
-"	image: url(:/Mnemoscheme/greenlamp.svg);\n"
+"	image: url(:/Mnemoscheme/icons/greenlamp.svg);\n"
 "	width: 15px;\n"
 "	height: 15px;\n"
 "}\n"
 "QRadioButton:indicator:unchecked\n"
 "{\n"
-"	image: url(:/Mnemoscheme/redlamp.svg);\n"
+"	image: url(:/Mnemoscheme/icons/redlamp.svg);\n"
 "	width: 15px;\n"
 "	height: 15px;\n"
 "}\n"
@@ -150,13 +150,13 @@ class Ui_Form(object):
 "}\n"
 "QRadioButton:indicator:checked\n"
 "{\n"
-"	image: url(:/Mnemoscheme/greenlamp.svg);\n"
+"	image: url(:/Mnemoscheme/icons/greenlamp.svg);\n"
 "	width: 15px;\n"
 "	height: 15px;\n"
 "}\n"
 "QRadioButton:indicator:unchecked\n"
 "{\n"
-"	image: url(:/Mnemoscheme/redlamp.svg);\n"
+"	image: url(:/Mnemoscheme/icons/redlamp.svg);\n"
 "	width: 15px;\n"
 "	height: 15px;\n"
 "}\n"
@@ -174,13 +174,13 @@ class Ui_Form(object):
 "}\n"
 "QRadioButton:indicator:checked\n"
 "{\n"
-"	image: url(:/Mnemoscheme/greenlamp.svg);\n"
+"	image: url(:/Mnemoscheme/icons/greenlamp.svg);\n"
 "	width: 15px;\n"
 "	height: 15px;\n"
 "}\n"
 "QRadioButton:indicator:unchecked\n"
 "{\n"
-"	image: url(:/Mnemoscheme/redlamp.svg);\n"
+"	image: url(:/Mnemoscheme/icons/redlamp.svg);\n"
 "	width: 15px;\n"
 "	height: 15px;\n"
 "}\n"
@@ -190,6 +190,15 @@ class Ui_Form(object):
 		self.input_valve_led.setCheckable(False)
 		self.input_valve_led.setChecked(False)
 		self.input_valve_led.setObjectName("input_valve_led")
+		self.mnemoscheme.raise_()
+		self.he_pump_lcd.raise_()
+		self.he_output_lcd.raise_()
+		self.he_output_lcd_2.raise_()
+		self.temp_lcd.raise_()
+		self.pres_lcd.raise_()
+		self.he_input_lcd.raise_()
+		self.co2_output_lcd.raise_()
+		self.input_valve_led.raise_()
 
 		self.retranslateUi(Form)
 		QtCore.QMetaObject.connectSlotsByName(Form)
