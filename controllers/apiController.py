@@ -2,6 +2,7 @@ import numpy as np
 import requests
 
 from config import API_PORT, API_IP, LOGIN_AS
+from models.Tank import Tank
 
 API_URL = f"http://{API_IP}:{API_PORT}/api/"
 
@@ -33,13 +34,12 @@ def get_current_temperature(tank_id):
     return np.random.normal()
 
 
-def get_current_pressure(tank_id):
+def get_current_tank_state(tank_name):
     pass
 
 
-def get_current_sensors_state(tank_id):
-    pass
-
-
-def get_current_actuators_state(tank_id):
-    pass
+def get_tanks():
+    return [
+        Tank(id=1, name="ЕББ1", type_id=1),
+        Tank(id=2, name="ЕТБ1", type_id=2),
+    ]

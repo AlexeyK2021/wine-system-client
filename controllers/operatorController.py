@@ -1,14 +1,10 @@
-from random import randint
-
-import numpy as np
-from PyQt6 import QtCore
 from PyQt6.QtWidgets import QMainWindow, QWidget
-from pyqtgraph import QtWidgets, QtGui
-import pyqtgraph as pg
-from controllers.apiController import get_current_temperature
-from pages import resources
+
+from controllers.apiController import get_tanks, get_current_tank_state
+from pages.ff_widget import Ui_FF_Widget
 from pages.operatorPage import Ui_OperatorWindow
-from pages.testform import Ui_Form
+from pages.sf_widget import Ui_SF_Widget
+import pages.resources
 
 
 class OperatorPage(QMainWindow):
@@ -17,11 +13,17 @@ class OperatorPage(QMainWindow):
         self.ui = Ui_OperatorWindow()
         self.ui.setupUi(self)
         self.ui.input_valve_led.setChecked(True)
-        self.ui.tabWidget.addTab(FastFermentationWidget(), "FF")
+        self.tanks = get_tanks()
+        for t in self.tanks:
+            if t.type_id == 1:
+                self.ui.tabWidget.addTab(FastFermentationWidget(), t.name)
+            elif t.type_id == 2:
+                self.ui.tabWidget.addTab(SlowFermentationWidget(), t.name)
 
-        # self.ui.widget = Ui_Form()
-        # self.ui.widget.setupUi(self)
+        self.ui.tabWidget.currentChanged.connect(self.indexChanged)
 
+    #     self.ui.widget = Ui_Form()
+    #     self.ui.widget.setupUi(self)
     #     self.ui.tank_selector.addItems({"hello": "World", "1234": 5})
     #     self.x = 0
     #     self.y = [get_current_temperature(1)]
@@ -54,9 +56,20 @@ class OperatorPage(QMainWindow):
     #     self.data_line.setData(y=self.y)
     #     self.data_line.setPos(self.x, 0)
 
+    def indexChanged(self, index):
+        print(f"Tab{index}")
+        get_current_tank_state(self.tanks[index])
+
 
 class FastFermentationWidget(QWidget):
     def __init__(self, parent=None):
         super().__init__(parent)
-        self.ui = Ui_Form()
+        self.ui = Ui_FF_Widget()
+        self.ui.setupUi(self)
+
+
+class SlowFermentationWidget(QWidget):
+    def __init__(self, parent=None):
+        super().__init__(parent)
+        self.ui = Ui_SF_Widget()
         self.ui.setupUi(self)

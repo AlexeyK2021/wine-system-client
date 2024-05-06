@@ -70,8 +70,8 @@
    <widget class="QRadioButton" name="co2_output_lcd">
     <property name="geometry">
      <rect>
-      <x>430</x>
-      <y>150</y>
+      <x>403</x>
+      <y>116</y>
       <width>16</width>
       <height>16</height>
      </rect>
@@ -83,13 +83,13 @@
 }
 QRadioButton:indicator:checked
 {
-	image: url(icons:greenlamp.svg);
+	image: url(:/Mnemoscheme/icons/greenlamp.svg);
 	width: 15px;
 	height: 15px;
 }
 QRadioButton:indicator:unchecked
 {
-	image: url(icons:redlamp.svg);
+	image: url(:/Mnemoscheme/icons/redlamp.svg);
 	width: 15px;
 	height: 15px;
 }
@@ -578,6 +578,42 @@ QRadioButton:indicator:unchecked
      <bool>false</bool>
     </property>
    </widget>
+   <widget class="QPushButton" name="pushButton">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>530</y>
+      <width>800</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton
+{
+	background-color: red;
+	font: 700 16pt &quot;Segoe UI&quot;;
+}
+
+</string>
+    </property>
+    <property name="text">
+     <string>Экстренная остановка</string>
+    </property>
+    <property name="checkable">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QTabWidget" name="tabWidget">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>801</width>
+      <height>521</height>
+     </rect>
+    </property>
+   </widget>
+   <zorder>mnemoscheme</zorder>
    <zorder>gridLayoutWidget</zorder>
    <zorder>co2_output_lcd</zorder>
    <zorder>output_led</zorder>
@@ -590,7 +626,8 @@ QRadioButton:indicator:unchecked
    <zorder>he_input_led</zorder>
    <zorder>output_valve_led</zorder>
    <zorder>high_level_led_2</zorder>
-   <zorder>mnemoscheme</zorder>
+   <zorder>pushButton</zorder>
+   <zorder>tabWidget</zorder>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>

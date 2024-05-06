@@ -43,20 +43,20 @@ class Ui_OperatorWindow(object):
 		self.tank_selector.setObjectName("tank_selector")
 		self.gridLayout.addWidget(self.tank_selector, 0, 1, 1, 1)
 		self.co2_output_lcd = QtWidgets.QRadioButton(parent=self.centralwidget)
-		self.co2_output_lcd.setGeometry(QtCore.QRect(430, 150, 16, 16))
+		self.co2_output_lcd.setGeometry(QtCore.QRect(403, 116, 16, 16))
 		self.co2_output_lcd.setStyleSheet("QRadioButton\n"
 "{\n"
 "	color: red;\n"
 "}\n"
 "QRadioButton:indicator:checked\n"
 "{\n"
-"	image: url(icons:greenlamp.svg);\n"
+"	image: url(:/Mnemoscheme/icons/greenlamp.svg);\n"
 "	width: 15px;\n"
 "	height: 15px;\n"
 "}\n"
 "QRadioButton:indicator:unchecked\n"
 "{\n"
-"	image: url(icons:redlamp.svg);\n"
+"	image: url(:/Mnemoscheme/icons/redlamp.svg);\n"
 "	width: 15px;\n"
 "	height: 15px;\n"
 "}\n"
@@ -299,9 +299,21 @@ class Ui_OperatorWindow(object):
 		self.high_level_led_2.setCheckable(False)
 		self.high_level_led_2.setChecked(False)
 		self.high_level_led_2.setObjectName("high_level_led_2")
+		self.pushButton = QtWidgets.QPushButton(parent=self.centralwidget)
+		self.pushButton.setGeometry(QtCore.QRect(0, 530, 800, 51))
+		self.pushButton.setStyleSheet("QPushButton\n"
+"{\n"
+"	background-color: red;\n"
+"	font: 700 16pt \"Segoe UI\";\n"
+"}\n"
+"\n"
+"")
+		self.pushButton.setCheckable(True)
+		self.pushButton.setObjectName("pushButton")
 		self.tabWidget = QtWidgets.QTabWidget(parent=self.centralwidget)
-		self.tabWidget.setGeometry(QtCore.QRect(70, 390, 481, 201))
+		self.tabWidget.setGeometry(QtCore.QRect(0, 0, 801, 521))
 		self.tabWidget.setObjectName("tabWidget")
+		self.mnemoscheme.raise_()
 		self.gridLayoutWidget.raise_()
 		self.co2_output_lcd.raise_()
 		self.output_led.raise_()
@@ -314,7 +326,7 @@ class Ui_OperatorWindow(object):
 		self.he_input_led.raise_()
 		self.output_valve_led.raise_()
 		self.high_level_led_2.raise_()
-		self.mnemoscheme.raise_()
+		self.pushButton.raise_()
 		self.tabWidget.raise_()
 		OperatorWindow.setCentralWidget(self.centralwidget)
 		self.statusbar = QtWidgets.QStatusBar(parent=OperatorWindow)
@@ -322,7 +334,6 @@ class Ui_OperatorWindow(object):
 		OperatorWindow.setStatusBar(self.statusbar)
 
 		self.retranslateUi(OperatorWindow)
-		self.tabWidget.setCurrentIndex(-1)
 		QtCore.QMetaObject.connectSlotsByName(OperatorWindow)
 
 	def retranslateUi(self, OperatorWindow):
@@ -331,3 +342,4 @@ class Ui_OperatorWindow(object):
 		self.label_3.setText(_translate("OperatorWindow", "Следующий процесс"))
 		self.label_2.setText(_translate("OperatorWindow", "Текущий процесс"))
 		self.label.setText(_translate("OperatorWindow", "Ёмкость"))
+		self.pushButton.setText(_translate("OperatorWindow", "Экстренная остановка"))
