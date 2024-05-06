@@ -13,16 +13,16 @@ if __name__ == '__main__':
 
     login_page = LoginPage()
     admin_page = AdminPage()
-    operator_page = OperatorPage()
+    # operator_page = OperatorPage()
     sandbox = SandBoxPage()
     login_page.on_admin_enter = lambda: win.setCurrentIndex(1)
-    login_page.on_operator_enter = lambda: win.setCurrentIndex(2)
-    # login_page.on_sandbox
+    # login_page.on_operator_enter = lambda: win.setCurrentIndex(2)
+    # login_page.on_sandbox = lambda: win.setCurrentIndex(3)
 
     win.addWidget(login_page)
     win.addWidget(admin_page)
-    win.addWidget(operator_page)
-    win.addWidget(sandbox)
+    # win.addWidget(operator_page)
+    # win.addWidget(sandbox)
 
     win.resize(800, 600)
     win.show()
