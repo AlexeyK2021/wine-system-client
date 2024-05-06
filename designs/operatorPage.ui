@@ -600,7 +600,7 @@ QRadioButton:indicator:unchecked
      <string>Экстренная остановка</string>
     </property>
     <property name="checkable">
-     <bool>true</bool>
+     <bool>false</bool>
     </property>
    </widget>
    <widget class="QTabWidget" name="tabWidget">
