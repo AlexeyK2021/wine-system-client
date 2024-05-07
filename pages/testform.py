@@ -92,9 +92,9 @@ class Ui_Form(object):
 		self.mnemoscheme.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
 		self.mnemoscheme.setWordWrap(False)
 		self.mnemoscheme.setObjectName("mnemoscheme")
-		self.output_led = QtWidgets.QRadioButton(parent=Form)
-		self.output_led.setGeometry(QtCore.QRect(565, 320, 16, 16))
-		self.output_led.setStyleSheet("QRadioButton\n"
+		self.output_pump_led = QtWidgets.QRadioButton(parent=Form)
+		self.output_pump_led.setGeometry(QtCore.QRect(565, 320, 16, 16))
+		self.output_pump_led.setStyleSheet("QRadioButton\n"
 "{\n"
 "	color: red;\n"
 "}\n"
@@ -110,11 +110,11 @@ class Ui_Form(object):
 "	width: 15px;\n"
 "	height: 15px;\n"
 "}")
-		self.output_led.setText("")
-		self.output_led.setIconSize(QtCore.QSize(50, 50))
-		self.output_led.setCheckable(False)
-		self.output_led.setChecked(False)
-		self.output_led.setObjectName("output_led")
+		self.output_pump_led.setText("")
+		self.output_pump_led.setIconSize(QtCore.QSize(50, 50))
+		self.output_pump_led.setCheckable(False)
+		self.output_pump_led.setChecked(False)
+		self.output_pump_led.setObjectName("output_led")
 		self.high_level_led = QtWidgets.QRadioButton(parent=Form)
 		self.high_level_led.setGeometry(QtCore.QRect(270, 226, 16, 16))
 		self.high_level_led.setStyleSheet("QRadioButton\n"
@@ -272,7 +272,7 @@ class Ui_Form(object):
 		self.he_pump_led.raise_()
 		self.input_valve_led.raise_()
 		self.output_valve_led.raise_()
-		self.output_led.raise_()
+		self.output_pump_led.raise_()
 		self.high_level_led.raise_()
 		self.low_level_led.raise_()
 		self.temp_lcd.raise_()

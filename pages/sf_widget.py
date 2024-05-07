@@ -1,4 +1,4 @@
-# Form implementation generated from reading ui file 'designs/sf_widget.ui'
+# Form implementation generated from reading ui file '.\designs\sf_widget.ui'
 #
 # Created by: PyQt6 UI code generator 6.7.0
 #
@@ -10,281 +10,281 @@ from PyQt6 import QtCore, QtGui, QtWidgets
 
 
 class Ui_SF_Widget(object):
-	def setupUi(self, SF_Widget):
-		SF_Widget.setObjectName("SF_Widget")
-		SF_Widget.resize(720, 450)
-		self.he_pump_led = QtWidgets.QRadioButton(parent=SF_Widget)
-		self.he_pump_led.setGeometry(QtCore.QRect(183, 301, 16, 16))
-		self.he_pump_led.setStyleSheet("QRadioButton\n"
+    def setupUi(self, SF_Widget):
+        SF_Widget.setObjectName("SF_Widget")
+        SF_Widget.resize(720, 450)
+        self.he_pump_led = QtWidgets.QRadioButton(parent=SF_Widget)
+        self.he_pump_led.setGeometry(QtCore.QRect(183, 301, 16, 16))
+        self.he_pump_led.setStyleSheet("QRadioButton\n"
 "{\n"
-"	color: red;\n"
+"    color: red;\n"
 "}\n"
 "QRadioButton:indicator:checked\n"
 "{\n"
-"	image: url(:/Mnemoscheme/icons/greenlamp.svg);\n"
-"	width: 15px;\n"
-"	height: 15px;\n"
+"    image: url(:/Mnemoscheme/icons/greenlamp.svg);\n"
+"    width: 15px;\n"
+"    height: 15px;\n"
 "}\n"
 "QRadioButton:indicator:unchecked\n"
 "{\n"
-"	image: url(:/Mnemoscheme/icons/redlamp.svg);\n"
-"	width: 15px;\n"
-"	height: 15px;\n"
+"    image: url(:/Mnemoscheme/icons/redlamp.svg);\n"
+"    width: 15px;\n"
+"    height: 15px;\n"
 "}")
-		self.he_pump_led.setText("")
-		self.he_pump_led.setIconSize(QtCore.QSize(50, 50))
-		self.he_pump_led.setCheckable(False)
-		self.he_pump_led.setChecked(False)
-		self.he_pump_led.setObjectName("he_pump_led")
-		self.input_valve_led = QtWidgets.QRadioButton(parent=SF_Widget)
-		self.input_valve_led.setGeometry(QtCore.QRect(254, 190, 16, 16))
-		self.input_valve_led.setStyleSheet("QRadioButton\n"
+        self.he_pump_led.setText("")
+        self.he_pump_led.setIconSize(QtCore.QSize(50, 50))
+        self.he_pump_led.setCheckable(False)
+        self.he_pump_led.setChecked(False)
+        self.he_pump_led.setObjectName("he_pump_led")
+        self.input_valve_led = QtWidgets.QRadioButton(parent=SF_Widget)
+        self.input_valve_led.setGeometry(QtCore.QRect(254, 190, 16, 16))
+        self.input_valve_led.setStyleSheet("QRadioButton\n"
 "{\n"
-"	color: red;\n"
+"    color: red;\n"
 "}\n"
 "QRadioButton:indicator:checked\n"
 "{\n"
-"	image: url(:/Mnemoscheme/icons/greenlamp.svg);\n"
-"	width: 15px;\n"
-"	height: 15px;\n"
+"    image: url(:/Mnemoscheme/icons/greenlamp.svg);\n"
+"    width: 15px;\n"
+"    height: 15px;\n"
 "}\n"
 "QRadioButton:indicator:unchecked\n"
 "{\n"
-"	image: url(:/Mnemoscheme/icons/redlamp.svg);\n"
-"	width: 15px;\n"
-"	height: 15px;\n"
+"    image: url(:/Mnemoscheme/icons/redlamp.svg);\n"
+"    width: 15px;\n"
+"    height: 15px;\n"
 "}")
-		self.input_valve_led.setIconSize(QtCore.QSize(50, 50))
-		self.input_valve_led.setCheckable(True)
-		self.input_valve_led.setChecked(False)
-		self.input_valve_led.setObjectName("input_valve_led")
-		self.output_valve_led = QtWidgets.QRadioButton(parent=SF_Widget)
-		self.output_valve_led.setGeometry(QtCore.QRect(471, 189, 16, 16))
-		self.output_valve_led.setStyleSheet("QRadioButton\n"
+        self.input_valve_led.setIconSize(QtCore.QSize(50, 50))
+        self.input_valve_led.setCheckable(True)
+        self.input_valve_led.setChecked(False)
+        self.input_valve_led.setObjectName("input_valve_led")
+        self.output_valve_led = QtWidgets.QRadioButton(parent=SF_Widget)
+        self.output_valve_led.setGeometry(QtCore.QRect(471, 189, 16, 16))
+        self.output_valve_led.setStyleSheet("QRadioButton\n"
 "{\n"
-"	color: red;\n"
+"    color: red;\n"
 "}\n"
 "QRadioButton:indicator:checked\n"
 "{\n"
-"	image: url(:/Mnemoscheme/icons/greenlamp.svg);\n"
-"	width: 15px;\n"
-"	height: 15px;\n"
+"    image: url(:/Mnemoscheme/icons/greenlamp.svg);\n"
+"    width: 15px;\n"
+"    height: 15px;\n"
 "}\n"
 "QRadioButton:indicator:unchecked\n"
 "{\n"
-"	image: url(:/Mnemoscheme/icons/redlamp.svg);\n"
-"	width: 15px;\n"
-"	height: 15px;\n"
+"    image: url(:/Mnemoscheme/icons/redlamp.svg);\n"
+"    width: 15px;\n"
+"    height: 15px;\n"
 "}")
-		self.output_valve_led.setText("")
-		self.output_valve_led.setIconSize(QtCore.QSize(50, 50))
-		self.output_valve_led.setCheckable(False)
-		self.output_valve_led.setChecked(False)
-		self.output_valve_led.setObjectName("output_valve_led")
-		self.mnemoscheme = QtWidgets.QLabel(parent=SF_Widget)
-		self.mnemoscheme.setGeometry(QtCore.QRect(0, 0, 720, 450))
-		self.mnemoscheme.setLocale(QtCore.QLocale(QtCore.QLocale.Language.Russian, QtCore.QLocale.Country.Russia))
-		self.mnemoscheme.setText("")
-		self.mnemoscheme.setMargin(50)
-		self.mnemoscheme.setTextFormat(QtCore.Qt.TextFormat.RichText)
-		self.mnemoscheme.setPixmap(QtGui.QPixmap("designs\\mnemo/тб.svg"))
-		self.mnemoscheme.setScaledContents(True)
-		self.mnemoscheme.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
-		self.mnemoscheme.setWordWrap(False)
-		self.mnemoscheme.setObjectName("mnemoscheme")
-		self.output_led = QtWidgets.QRadioButton(parent=SF_Widget)
-		self.output_led.setGeometry(QtCore.QRect(554, 194, 16, 16))
-		self.output_led.setStyleSheet("QRadioButton\n"
+        self.output_valve_led.setText("")
+        self.output_valve_led.setIconSize(QtCore.QSize(50, 50))
+        self.output_valve_led.setCheckable(False)
+        self.output_valve_led.setChecked(False)
+        self.output_valve_led.setObjectName("output_valve_led")
+        self.mnemoscheme = QtWidgets.QLabel(parent=SF_Widget)
+        self.mnemoscheme.setGeometry(QtCore.QRect(0, 0, 720, 450))
+        self.mnemoscheme.setLocale(QtCore.QLocale(QtCore.QLocale.Language.Russian, QtCore.QLocale.Country.Russia))
+        self.mnemoscheme.setText("")
+        self.mnemoscheme.setMargin(50)
+        self.mnemoscheme.setTextFormat(QtCore.Qt.TextFormat.RichText)
+        self.mnemoscheme.setPixmap(QtGui.QPixmap(".\\designs\\mnemo/тб.svg"))
+        self.mnemoscheme.setScaledContents(True)
+        self.mnemoscheme.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
+        self.mnemoscheme.setWordWrap(False)
+        self.mnemoscheme.setObjectName("mnemoscheme")
+        self.output_pump_led = QtWidgets.QRadioButton(parent=SF_Widget)
+        self.output_pump_led.setGeometry(QtCore.QRect(554, 194, 16, 16))
+        self.output_pump_led.setStyleSheet("QRadioButton\n"
 "{\n"
-"	color: red;\n"
+"    color: red;\n"
 "}\n"
 "QRadioButton:indicator:checked\n"
 "{\n"
-"	image: url(:/Mnemoscheme/icons/greenlamp.svg);\n"
-"	width: 15px;\n"
-"	height: 15px;\n"
+"    image: url(:/Mnemoscheme/icons/greenlamp.svg);\n"
+"    width: 15px;\n"
+"    height: 15px;\n"
 "}\n"
 "QRadioButton:indicator:unchecked\n"
 "{\n"
-"	image: url(:/Mnemoscheme/icons/redlamp.svg);\n"
-"	width: 15px;\n"
-"	height: 15px;\n"
+"    image: url(:/Mnemoscheme/icons/redlamp.svg);\n"
+"    width: 15px;\n"
+"    height: 15px;\n"
 "}")
-		self.output_led.setText("")
-		self.output_led.setIconSize(QtCore.QSize(50, 50))
-		self.output_led.setCheckable(False)
-		self.output_led.setChecked(False)
-		self.output_led.setObjectName("output_led")
-		self.high_level_led = QtWidgets.QRadioButton(parent=SF_Widget)
-		self.high_level_led.setGeometry(QtCore.QRect(257, 234, 16, 16))
-		self.high_level_led.setStyleSheet("QRadioButton\n"
+        self.output_pump_led.setText("")
+        self.output_pump_led.setIconSize(QtCore.QSize(50, 50))
+        self.output_pump_led.setCheckable(False)
+        self.output_pump_led.setChecked(False)
+        self.output_pump_led.setObjectName("output_pump_led")
+        self.high_level_led = QtWidgets.QRadioButton(parent=SF_Widget)
+        self.high_level_led.setGeometry(QtCore.QRect(257, 234, 16, 16))
+        self.high_level_led.setStyleSheet("QRadioButton\n"
 "{\n"
-"	color: red;\n"
+"    color: red;\n"
 "}\n"
 "QRadioButton:indicator:checked\n"
 "{\n"
-"	image: url(:/Mnemoscheme/icons/greenlamp.svg);\n"
-"	width: 15px;\n"
-"	height: 15px;\n"
+"    image: url(:/Mnemoscheme/icons/greenlamp.svg);\n"
+"    width: 15px;\n"
+"    height: 15px;\n"
 "}\n"
 "QRadioButton:indicator:unchecked\n"
 "{\n"
-"	image: url(:/Mnemoscheme/icons/redlamp.svg);\n"
-"	width: 15px;\n"
-"	height: 15px;\n"
+"    image: url(:/Mnemoscheme/icons/redlamp.svg);\n"
+"    width: 15px;\n"
+"    height: 15px;\n"
 "}")
-		self.high_level_led.setText("")
-		self.high_level_led.setIconSize(QtCore.QSize(50, 50))
-		self.high_level_led.setCheckable(False)
-		self.high_level_led.setChecked(False)
-		self.high_level_led.setObjectName("high_level_led")
-		self.low_level_led = QtWidgets.QRadioButton(parent=SF_Widget)
-		self.low_level_led.setGeometry(QtCore.QRect(256, 356, 16, 16))
-		self.low_level_led.setStyleSheet("QRadioButton\n"
+        self.high_level_led.setText("")
+        self.high_level_led.setIconSize(QtCore.QSize(50, 50))
+        self.high_level_led.setCheckable(False)
+        self.high_level_led.setChecked(False)
+        self.high_level_led.setObjectName("high_level_led")
+        self.low_level_led = QtWidgets.QRadioButton(parent=SF_Widget)
+        self.low_level_led.setGeometry(QtCore.QRect(256, 356, 16, 16))
+        self.low_level_led.setStyleSheet("QRadioButton\n"
 "{\n"
-"	color: red;\n"
+"    color: red;\n"
 "}\n"
 "QRadioButton:indicator:checked\n"
 "{\n"
-"	image: url(:/Mnemoscheme/icons/greenlamp.svg);\n"
-"	width: 15px;\n"
-"	height: 15px;\n"
+"    image: url(:/Mnemoscheme/icons/greenlamp.svg);\n"
+"    width: 15px;\n"
+"    height: 15px;\n"
 "}\n"
 "QRadioButton:indicator:unchecked\n"
 "{\n"
-"	image: url(:/Mnemoscheme/icons/redlamp.svg);\n"
-"	width: 15px;\n"
-"	height: 15px;\n"
+"    image: url(:/Mnemoscheme/icons/redlamp.svg);\n"
+"    width: 15px;\n"
+"    height: 15px;\n"
 "}")
-		self.low_level_led.setText("")
-		self.low_level_led.setIconSize(QtCore.QSize(50, 50))
-		self.low_level_led.setCheckable(False)
-		self.low_level_led.setChecked(False)
-		self.low_level_led.setObjectName("low_level_led")
-		self.temp_lcd = QtWidgets.QLCDNumber(parent=SF_Widget)
-		self.temp_lcd.setGeometry(QtCore.QRect(433, 290, 71, 30))
-		self.temp_lcd.setLayoutDirection(QtCore.Qt.LayoutDirection.LeftToRight)
-		self.temp_lcd.setFrameShape(QtWidgets.QFrame.Shape.NoFrame)
-		self.temp_lcd.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
-		self.temp_lcd.setSmallDecimalPoint(False)
-		self.temp_lcd.setDigitCount(3)
-		self.temp_lcd.setMode(QtWidgets.QLCDNumber.Mode.Dec)
-		self.temp_lcd.setSegmentStyle(QtWidgets.QLCDNumber.SegmentStyle.Flat)
-		self.temp_lcd.setProperty("value", 123.0)
-		self.temp_lcd.setProperty("intValue", 123)
-		self.temp_lcd.setObjectName("temp_lcd")
-		self.he_input_led = QtWidgets.QRadioButton(parent=SF_Widget)
-		self.he_input_led.setGeometry(QtCore.QRect(225, 250, 16, 16))
-		self.he_input_led.setStyleSheet("QRadioButton\n"
+        self.low_level_led.setText("")
+        self.low_level_led.setIconSize(QtCore.QSize(50, 50))
+        self.low_level_led.setCheckable(False)
+        self.low_level_led.setChecked(False)
+        self.low_level_led.setObjectName("low_level_led")
+        self.temp_lcd = QtWidgets.QLCDNumber(parent=SF_Widget)
+        self.temp_lcd.setGeometry(QtCore.QRect(433, 290, 71, 30))
+        self.temp_lcd.setLayoutDirection(QtCore.Qt.LayoutDirection.LeftToRight)
+        self.temp_lcd.setFrameShape(QtWidgets.QFrame.Shape.NoFrame)
+        self.temp_lcd.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
+        self.temp_lcd.setSmallDecimalPoint(False)
+        self.temp_lcd.setDigitCount(3)
+        self.temp_lcd.setMode(QtWidgets.QLCDNumber.Mode.Dec)
+        self.temp_lcd.setSegmentStyle(QtWidgets.QLCDNumber.SegmentStyle.Flat)
+        self.temp_lcd.setProperty("value", 123.0)
+        self.temp_lcd.setProperty("intValue", 123)
+        self.temp_lcd.setObjectName("temp_lcd")
+        self.he_input_led = QtWidgets.QRadioButton(parent=SF_Widget)
+        self.he_input_led.setGeometry(QtCore.QRect(225, 250, 16, 16))
+        self.he_input_led.setStyleSheet("QRadioButton\n"
 "{\n"
-"	color: red;\n"
+"    color: red;\n"
 "}\n"
 "QRadioButton:indicator:checked\n"
 "{\n"
-"	image: url(:/Mnemoscheme/icons/greenlamp.svg);\n"
-"	width: 15px;\n"
-"	height: 15px;\n"
+"    image: url(:/Mnemoscheme/icons/greenlamp.svg);\n"
+"    width: 15px;\n"
+"    height: 15px;\n"
 "}\n"
 "QRadioButton:indicator:unchecked\n"
 "{\n"
-"	image: url(:/Mnemoscheme/icons/redlamp.svg);\n"
-"	width: 15px;\n"
-"	height: 15px;\n"
+"    image: url(:/Mnemoscheme/icons/redlamp.svg);\n"
+"    width: 15px;\n"
+"    height: 15px;\n"
 "}")
-		self.he_input_led.setText("")
-		self.he_input_led.setIconSize(QtCore.QSize(50, 50))
-		self.he_input_led.setCheckable(False)
-		self.he_input_led.setChecked(False)
-		self.he_input_led.setObjectName("he_input_led")
-		self.pres_lcd = QtWidgets.QLCDNumber(parent=SF_Widget)
-		self.pres_lcd.setGeometry(QtCore.QRect(505, 290, 71, 30))
-		self.pres_lcd.setLayoutDirection(QtCore.Qt.LayoutDirection.LeftToRight)
-		self.pres_lcd.setStyleSheet("QRadioButton\n"
+        self.he_input_led.setText("")
+        self.he_input_led.setIconSize(QtCore.QSize(50, 50))
+        self.he_input_led.setCheckable(False)
+        self.he_input_led.setChecked(False)
+        self.he_input_led.setObjectName("he_input_led")
+        self.pres_lcd = QtWidgets.QLCDNumber(parent=SF_Widget)
+        self.pres_lcd.setGeometry(QtCore.QRect(505, 290, 71, 30))
+        self.pres_lcd.setLayoutDirection(QtCore.Qt.LayoutDirection.LeftToRight)
+        self.pres_lcd.setStyleSheet("QRadioButton\n"
 "{\n"
-"	color: red;\n"
+"    color: red;\n"
 "}\n"
 "QRadioButton:indicator:checked\n"
 "{\n"
-"	image: url(:/Mnemoscheme/icons/greenlamp.svg);\n"
-"	width: 15px;\n"
-"	height: 15px;\n"
+"    image: url(:/Mnemoscheme/icons/greenlamp.svg);\n"
+"    width: 15px;\n"
+"    height: 15px;\n"
 "}\n"
 "QRadioButton:indicator:unchecked\n"
 "{\n"
-"	image: url(:/Mnemoscheme/icons/redlamp.svg);\n"
-"	width: 15px;\n"
-"	height: 15px;\n"
+"    image: url(:/Mnemoscheme/icons/redlamp.svg);\n"
+"    width: 15px;\n"
+"    height: 15px;\n"
 "}")
-		self.pres_lcd.setFrameShape(QtWidgets.QFrame.Shape.NoFrame)
-		self.pres_lcd.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
-		self.pres_lcd.setSmallDecimalPoint(True)
-		self.pres_lcd.setDigitCount(3)
-		self.pres_lcd.setMode(QtWidgets.QLCDNumber.Mode.Dec)
-		self.pres_lcd.setSegmentStyle(QtWidgets.QLCDNumber.SegmentStyle.Flat)
-		self.pres_lcd.setProperty("value", 123.0)
-		self.pres_lcd.setProperty("intValue", 123)
-		self.pres_lcd.setObjectName("pres_lcd")
-		self.he_output_led = QtWidgets.QRadioButton(parent=SF_Widget)
-		self.he_output_led.setGeometry(QtCore.QRect(255, 295, 16, 16))
-		self.he_output_led.setStyleSheet("QRadioButton\n"
+        self.pres_lcd.setFrameShape(QtWidgets.QFrame.Shape.NoFrame)
+        self.pres_lcd.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
+        self.pres_lcd.setSmallDecimalPoint(True)
+        self.pres_lcd.setDigitCount(3)
+        self.pres_lcd.setMode(QtWidgets.QLCDNumber.Mode.Dec)
+        self.pres_lcd.setSegmentStyle(QtWidgets.QLCDNumber.SegmentStyle.Flat)
+        self.pres_lcd.setProperty("value", 123.0)
+        self.pres_lcd.setProperty("intValue", 123)
+        self.pres_lcd.setObjectName("pres_lcd")
+        self.he_output_led = QtWidgets.QRadioButton(parent=SF_Widget)
+        self.he_output_led.setGeometry(QtCore.QRect(255, 295, 16, 16))
+        self.he_output_led.setStyleSheet("QRadioButton\n"
 "{\n"
-"	color: red;\n"
+"    color: red;\n"
 "}\n"
 "QRadioButton:indicator:checked\n"
 "{\n"
-"	image: url(:/Mnemoscheme/icons/greenlamp.svg);\n"
-"	width: 15px;\n"
-"	height: 15px;\n"
+"    image: url(:/Mnemoscheme/icons/greenlamp.svg);\n"
+"    width: 15px;\n"
+"    height: 15px;\n"
 "}\n"
 "QRadioButton:indicator:unchecked\n"
 "{\n"
-"	image: url(:/Mnemoscheme/icons/redlamp.svg);\n"
-"	width: 15px;\n"
-"	height: 15px;\n"
+"    image: url(:/Mnemoscheme/icons/redlamp.svg);\n"
+"    width: 15px;\n"
+"    height: 15px;\n"
 "}")
-		self.he_output_led.setText("")
-		self.he_output_led.setIconSize(QtCore.QSize(50, 50))
-		self.he_output_led.setCheckable(False)
-		self.he_output_led.setChecked(False)
-		self.he_output_led.setObjectName("he_output_led")
-		self.co2_valve_led = QtWidgets.QRadioButton(parent=SF_Widget)
-		self.co2_valve_led.setGeometry(QtCore.QRect(380, 116, 16, 16))
-		self.co2_valve_led.setStyleSheet("QRadioButton\n"
+        self.he_output_led.setText("")
+        self.he_output_led.setIconSize(QtCore.QSize(50, 50))
+        self.he_output_led.setCheckable(False)
+        self.he_output_led.setChecked(False)
+        self.he_output_led.setObjectName("he_output_led")
+        self.co2_valve_led = QtWidgets.QRadioButton(parent=SF_Widget)
+        self.co2_valve_led.setGeometry(QtCore.QRect(380, 116, 16, 16))
+        self.co2_valve_led.setStyleSheet("QRadioButton\n"
 "{\n"
-"	color: red;\n"
+"    color: red;\n"
 "}\n"
 "QRadioButton:indicator:checked\n"
 "{\n"
-"	image: url(:/Mnemoscheme/icons/greenlamp.svg);\n"
-"	width: 15px;\n"
-"	height: 15px;\n"
+"    image: url(:/Mnemoscheme/icons/greenlamp.svg);\n"
+"    width: 15px;\n"
+"    height: 15px;\n"
 "}\n"
 "QRadioButton:indicator:unchecked\n"
 "{\n"
-"	image: url(:/Mnemoscheme/icons/redlamp.svg);\n"
-"	width: 15px;\n"
-"	height: 15px;\n"
+"    image: url(:/Mnemoscheme/icons/redlamp.svg);\n"
+"    width: 15px;\n"
+"    height: 15px;\n"
 "}")
-		self.co2_valve_led.setIconSize(QtCore.QSize(50, 50))
-		self.co2_valve_led.setCheckable(True)
-		self.co2_valve_led.setChecked(False)
-		self.co2_valve_led.setObjectName("co2_valve_led")
-		self.mnemoscheme.raise_()
-		self.he_pump_led.raise_()
-		self.input_valve_led.raise_()
-		self.output_valve_led.raise_()
-		self.output_led.raise_()
-		self.high_level_led.raise_()
-		self.low_level_led.raise_()
-		self.temp_lcd.raise_()
-		self.he_input_led.raise_()
-		self.pres_lcd.raise_()
-		self.he_output_led.raise_()
-		self.co2_valve_led.raise_()
+        self.co2_valve_led.setIconSize(QtCore.QSize(50, 50))
+        self.co2_valve_led.setCheckable(True)
+        self.co2_valve_led.setChecked(False)
+        self.co2_valve_led.setObjectName("co2_valve_led")
+        self.mnemoscheme.raise_()
+        self.he_pump_led.raise_()
+        self.input_valve_led.raise_()
+        self.output_valve_led.raise_()
+        self.output_pump_led.raise_()
+        self.high_level_led.raise_()
+        self.low_level_led.raise_()
+        self.temp_lcd.raise_()
+        self.he_input_led.raise_()
+        self.pres_lcd.raise_()
+        self.he_output_led.raise_()
+        self.co2_valve_led.raise_()
 
-		self.retranslateUi(SF_Widget)
-		QtCore.QMetaObject.connectSlotsByName(SF_Widget)
+        self.retranslateUi(SF_Widget)
+        QtCore.QMetaObject.connectSlotsByName(SF_Widget)
 
-	def retranslateUi(self, SF_Widget):
-		_translate = QtCore.QCoreApplication.translate
-		SF_Widget.setWindowTitle(_translate("SF_Widget", "Form"))
+    def retranslateUi(self, SF_Widget):
+        _translate = QtCore.QCoreApplication.translate
+        SF_Widget.setWindowTitle(_translate("SF_Widget", "Form"))

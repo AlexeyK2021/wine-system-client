@@ -173,7 +173,7 @@ QRadioButton:indicator:unchecked
     <number>50</number>
    </property>
   </widget>
-  <widget class="QRadioButton" name="output_led">
+  <widget class="QRadioButton" name="output_pump_led">
    <property name="geometry">
     <rect>
      <x>554</x>
@@ -524,7 +524,7 @@ QRadioButton:indicator:unchecked
   <zorder>he_pump_led</zorder>
   <zorder>input_valve_led</zorder>
   <zorder>output_valve_led</zorder>
-  <zorder>output_led</zorder>
+  <zorder>output_pump_led</zorder>
   <zorder>high_level_led</zorder>
   <zorder>low_level_led</zorder>
   <zorder>temp_lcd</zorder>

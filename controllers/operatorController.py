@@ -6,6 +6,7 @@ import websocket
 from PyQt6.QtWidgets import QMainWindow, QWidget
 from websocket import WebSocketConnectionClosedException
 
+from config import API_IP, API_PORT
 from controllers.apiController import get_tanks
 from pages.ff_widget import Ui_FF_Widget
 from pages.operatorPage import Ui_OperatorWindow
@@ -21,16 +22,21 @@ class OperatorPage(QMainWindow):
         self.ui = Ui_OperatorWindow()
         self.ui.setupUi(self)
         self.tanks = get_tanks()
+        self.tabs = []
         for t in self.tanks:
             if t.type_id == 1:
-                self.ui.tabWidget.addTab(FastFermentationWidget(), t.name)
+                ff = FastFermentationWidget()
+                self.ui.tabWidget.addTab(ff, t.name)
+                self.tabs.append(ff)
             elif t.type_id == 2:
-                self.ui.tabWidget.addTab(SlowFermentationWidget(), t.name)
+                sf = SlowFermentationWidget()
+                self.ui.tabWidget.addTab(sf, t.name)
+                self.tabs.append(sf)
 
         # self.ui.tabWidget.currentChanged.connect(self.indexChanged)
 
         websocket.enableTrace(True)
-        self.ws = websocket.create_connection(f"ws://127.0.0.1:5000/api/tanks/ws")
+        self.ws = websocket.create_connection(f"ws://{API_IP}:{API_PORT}/api/tanks/ws")
         threading.Thread(target=self.get_data).start()
 
         # self.indexChanged(0)
@@ -82,7 +88,17 @@ class OperatorPage(QMainWindow):
                 print("Error websocket connection")
 
     def update_ui(self, data):
-
+        # self.ui.tabWidget.currentWidget().input_valve_led.checked = data[]
+        ui = self.tabs[self.ui.tabWidget.currentIndex()].ui
+        ui.temp_lcd.display(data["params"]["Temperature"])
+        ui.pres_lcd.display(data["params"]["Pressure"])
+        ui.input_valve_led.setChecked(data["actuators"]["Input_Valve"])
+        ui.he_input_led.setChecked(data["actuators"]["HE_Input_Valve"])
+        ui.he_output_led.setChecked(data["actuators"]["HE_Output_Valve"])
+        ui.he_pump_led.setChecked(data["actuators"]["HE_Pump"])
+        ui.co2_valve_led.setChecked(data["actuators"]["CO2_Valve"])
+        ui.output_pump_led.setChecked(data["actuators"]["Output_Pump"])
+        ui.output_valve_led.setChecked(data["actuators"]["Output_Valve"])
         pass
 
 
