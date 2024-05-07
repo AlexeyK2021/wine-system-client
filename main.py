@@ -9,8 +9,8 @@ from controllers.operatorController import OperatorPage
 from controllers.sandboxController import SandBoxPage
 
 if __name__ == '__main__':
-    root = os.path.dirname(os.path.abspath(__file__))
-    QDir.addSearchPath('icons', os.path.join(root, '/designs/icons/'))
+    # root = os.path.dirname(os.path.abspath(__file__))
+    # QDir.addSearchPath('icons', os.path.join(root, '/designs/icons/'))
 
     app = QtWidgets.QApplication(sys.argv)
     win = QStackedWidget()
@@ -18,7 +18,7 @@ if __name__ == '__main__':
     login_page = LoginPage()
     # admin_page = AdminPage()
     operator_page = OperatorPage()
-    sandbox = SandBoxPage()
+    # sandbox = SandBoxPage()
     # login_page.on_admin_enter = lambda: win.setCurrentIndex(1)
     login_page.on_operator_enter = lambda: win.setCurrentIndex(1)
     # login_page.on_sandbox = lambda: win.setCurrentIndex(3)
@@ -30,4 +30,5 @@ if __name__ == '__main__':
 
     win.resize(800, 600)
     win.show()
-    sys.exit(app.exec())
+    app.exec()
+    sys.exit()

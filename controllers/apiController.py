@@ -1,5 +1,10 @@
+import asyncio
+from threading import Thread
+from time import sleep
+
 import numpy as np
 import requests
+import websockets
 
 from config import API_PORT, API_IP, LOGIN_AS
 from models.Tank import Tank
@@ -30,16 +35,21 @@ def check_admin(login):
     return False
 
 
-def get_current_temperature(tank_id):
-    return np.random.normal()
-
-
-def get_current_tank_state(tank_name):
-    pass
-
-
 def get_tanks():
     return [
         Tank(id=1, name="ЕББ1", type_id=1),
         Tank(id=2, name="ЕТБ1", type_id=2),
     ]
+
+
+# async def get_tank_info_ws(tank_id):
+#     return websockets.connect(f"ws://localhost:5000/api/tank/{tank_id}/ws")
+
+
+# def get_current_temperature(tank_id):
+#     return np.random.normal()
+#
+#
+# def get_current_tank_state(tank_name):
+#     pass
+

@@ -13,6 +13,8 @@ class Ui_OperatorWindow(object):
 	def setupUi(self, OperatorWindow):
 		OperatorWindow.setObjectName("OperatorWindow")
 		OperatorWindow.resize(800, 600)
+		OperatorWindow.setMinimumSize(QtCore.QSize(800, 600))
+		OperatorWindow.setMaximumSize(QtCore.QSize(800, 600))
 		OperatorWindow.setAcceptDrops(True)
 		self.centralwidget = QtWidgets.QWidget(parent=OperatorWindow)
 		self.centralwidget.setObjectName("centralwidget")
@@ -300,7 +302,7 @@ class Ui_OperatorWindow(object):
 		self.high_level_led_2.setChecked(False)
 		self.high_level_led_2.setObjectName("high_level_led_2")
 		self.pushButton = QtWidgets.QPushButton(parent=self.centralwidget)
-		self.pushButton.setGeometry(QtCore.QRect(0, 530, 800, 51))
+		self.pushButton.setGeometry(QtCore.QRect(0, 550, 800, 51))
 		self.pushButton.setStyleSheet("QPushButton\n"
 "{\n"
 "	background-color: red;\n"
@@ -308,10 +310,10 @@ class Ui_OperatorWindow(object):
 "}\n"
 "\n"
 "")
-		self.pushButton.setCheckable(True)
+		self.pushButton.setCheckable(False)
 		self.pushButton.setObjectName("pushButton")
 		self.tabWidget = QtWidgets.QTabWidget(parent=self.centralwidget)
-		self.tabWidget.setGeometry(QtCore.QRect(0, 0, 801, 521))
+		self.tabWidget.setGeometry(QtCore.QRect(0, 0, 801, 551))
 		self.tabWidget.setObjectName("tabWidget")
 		self.mnemoscheme.raise_()
 		self.gridLayoutWidget.raise_()
@@ -329,9 +331,6 @@ class Ui_OperatorWindow(object):
 		self.pushButton.raise_()
 		self.tabWidget.raise_()
 		OperatorWindow.setCentralWidget(self.centralwidget)
-		self.statusbar = QtWidgets.QStatusBar(parent=OperatorWindow)
-		self.statusbar.setObjectName("statusbar")
-		OperatorWindow.setStatusBar(self.statusbar)
 
 		self.retranslateUi(OperatorWindow)
 		QtCore.QMetaObject.connectSlotsByName(OperatorWindow)

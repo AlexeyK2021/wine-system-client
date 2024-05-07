@@ -10,6 +10,18 @@
     <height>600</height>
    </rect>
   </property>
+  <property name="minimumSize">
+   <size>
+    <width>800</width>
+    <height>600</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>800</width>
+    <height>600</height>
+   </size>
+  </property>
   <property name="acceptDrops">
    <bool>true</bool>
   </property>
@@ -582,7 +594,7 @@ QRadioButton:indicator:unchecked
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>530</y>
+      <y>550</y>
       <width>800</width>
       <height>51</height>
      </rect>
@@ -609,7 +621,7 @@ QRadioButton:indicator:unchecked
       <x>0</x>
       <y>0</y>
       <width>801</width>
-      <height>521</height>
+      <height>551</height>
      </rect>
     </property>
    </widget>
@@ -629,7 +641,6 @@ QRadioButton:indicator:unchecked
    <zorder>pushButton</zorder>
    <zorder>tabWidget</zorder>
   </widget>
-  <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources>
   <include location="1234.qrc"/>

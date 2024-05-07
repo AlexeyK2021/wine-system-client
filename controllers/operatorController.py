@@ -1,10 +1,16 @@
+import sys
+import threading
+import ast
+
+import websocket
 from PyQt6.QtWidgets import QMainWindow, QWidget
 
-from controllers.apiController import get_tanks, get_current_tank_state
+from controllers.apiController import get_tanks, get_tank_info_ws
 from pages.ff_widget import Ui_FF_Widget
 from pages.operatorPage import Ui_OperatorWindow
 from pages.sf_widget import Ui_SF_Widget
 import pages.resources
+import rel
 
 
 class OperatorPage(QMainWindow):
@@ -20,7 +26,13 @@ class OperatorPage(QMainWindow):
             elif t.type_id == 2:
                 self.ui.tabWidget.addTab(SlowFermentationWidget(), t.name)
 
-        self.ui.tabWidget.currentChanged.connect(self.indexChanged)
+        # self.ui.tabWidget.currentChanged.connect(self.indexChanged)
+
+        websocket.enableTrace(True)
+        self.ws = websocket.create_connection(f"ws://127.0.0.1:5000/api/tanks/ws")
+        threading.Thread(target=self.get_data).start()
+
+        # self.indexChanged(0)
 
     #     self.ui.widget = Ui_Form()
     #     self.ui.widget.setupUi(self)
@@ -56,9 +68,39 @@ class OperatorPage(QMainWindow):
     #     self.data_line.setData(y=self.y)
     #     self.data_line.setPos(self.x, 0)
 
-    def indexChanged(self, index):
-        print(f"Tab{index}")
-        get_current_tank_state(self.tanks[index])
+    def get_data(self):
+        while True:
+            index = self.ui.tabWidget.currentIndex()
+            try:
+                self.ws.send(f"{self.tanks[index].id}")
+                data = self.ws.recv()
+                print(data)
+            except:
+                sys.exit()
+
+    # def indexChanged(self, index):
+    #     print(f"Tab{index}")
+    # self.ws.send_text(f"{self.tanks[index].id}")
+
+    # asyncio.run(self.update_data(self.tanks[index].id))
+
+    # async def update_data(self, tankId):
+    # async with websockets.connect(f"ws://localhost:5000/api/tank/{tankId}/ws") as ws:
+    #     while True:
+    #         msg = ws.recv()
+    #         print(msg)
+
+    # def on_message(self, ws, message):
+    #     print(message)
+    #
+    # def on_error(self, ws, error):
+    #     print(error)
+    #
+    # def on_close(self, ws, close_status_code, close_msg):
+    #     print("### closed ###")
+    #
+    # def on_open(self, ws):
+    #     print("Opened connection")
 
 
 class FastFermentationWidget(QWidget):
