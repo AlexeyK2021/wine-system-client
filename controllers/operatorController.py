@@ -4,13 +4,15 @@ import ast
 
 import websocket
 from PyQt6.QtWidgets import QMainWindow, QWidget
+from websocket import WebSocketConnectionClosedException
 
-from controllers.apiController import get_tanks, get_tank_info_ws
+from controllers.apiController import get_tanks
 from pages.ff_widget import Ui_FF_Widget
 from pages.operatorPage import Ui_OperatorWindow
 from pages.sf_widget import Ui_SF_Widget
 import pages.resources
 import rel
+import json
 
 
 class OperatorPage(QMainWindow):
@@ -18,7 +20,6 @@ class OperatorPage(QMainWindow):
         super(OperatorPage, self).__init__()
         self.ui = Ui_OperatorWindow()
         self.ui.setupUi(self)
-        self.ui.input_valve_led.setChecked(True)
         self.tanks = get_tanks()
         for t in self.tanks:
             if t.type_id == 1:
@@ -73,34 +74,41 @@ class OperatorPage(QMainWindow):
             index = self.ui.tabWidget.currentIndex()
             try:
                 self.ws.send(f"{self.tanks[index].id}")
-                data = self.ws.recv()
+                text = self.ws.recv()
+                data = json.loads(text)
                 print(data)
-            except:
-                sys.exit()
+                self.update_ui(data)
+            except WebSocketConnectionClosedException:
+                print("Error websocket connection")
 
-    # def indexChanged(self, index):
-    #     print(f"Tab{index}")
-    # self.ws.send_text(f"{self.tanks[index].id}")
+    def update_ui(self, data):
 
-    # asyncio.run(self.update_data(self.tanks[index].id))
+        pass
 
-    # async def update_data(self, tankId):
-    # async with websockets.connect(f"ws://localhost:5000/api/tank/{tankId}/ws") as ws:
-    #     while True:
-    #         msg = ws.recv()
-    #         print(msg)
 
-    # def on_message(self, ws, message):
-    #     print(message)
-    #
-    # def on_error(self, ws, error):
-    #     print(error)
-    #
-    # def on_close(self, ws, close_status_code, close_msg):
-    #     print("### closed ###")
-    #
-    # def on_open(self, ws):
-    #     print("Opened connection")
+# def indexChanged(self, index):
+#     print(f"Tab{index}")
+# self.ws.send_text(f"{self.tanks[index].id}")
+
+# asyncio.run(self.update_data(self.tanks[index].id))
+
+# async def update_data(self, tankId):
+# async with websockets.connect(f"ws://localhost:5000/api/tank/{tankId}/ws") as ws:
+#     while True:
+#         msg = ws.recv()
+#         print(msg)
+
+# def on_message(self, ws, message):
+#     print(message)
+#
+# def on_error(self, ws, error):
+#     print(error)
+#
+# def on_close(self, ws, close_status_code, close_msg):
+#     print("### closed ###")
+#
+# def on_open(self, ws):
+#     print("Opened connection")
 
 
 class FastFermentationWidget(QWidget):

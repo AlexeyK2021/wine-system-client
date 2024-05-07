@@ -39,6 +39,7 @@ def get_tanks():
     return [
         Tank(id=1, name="ЕББ1", type_id=1),
         Tank(id=2, name="ЕТБ1", type_id=2),
+        Tank(id=3, name="ЕТБ2", type_id=2),
     ]
 
 
