@@ -13,132 +13,6 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="QRadioButton" name="he_pump_led">
-   <property name="geometry">
-    <rect>
-     <x>196</x>
-     <y>280</y>
-     <width>16</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QRadioButton
-{
-	color: red;
-}
-QRadioButton:indicator:checked
-{
-	image: url(:/Mnemoscheme/icons/greenlamp.svg);
-	width: 15px;
-	height: 15px;
-}
-QRadioButton:indicator:unchecked
-{
-	image: url(:/Mnemoscheme/icons/redlamp.svg);
-	width: 15px;
-	height: 15px;
-}</string>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-   <property name="iconSize">
-    <size>
-     <width>50</width>
-     <height>50</height>
-    </size>
-   </property>
-   <property name="checkable">
-    <bool>true</bool>
-   </property>
-   <property name="checked">
-    <bool>false</bool>
-   </property>
-  </widget>
-  <widget class="QRadioButton" name="input_valve_led">
-   <property name="geometry">
-    <rect>
-     <x>267</x>
-     <y>178</y>
-     <width>16</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QRadioButton
-{
-	color: red;
-}
-QRadioButton:indicator:checked
-{
-	image: url(:/Mnemoscheme/icons/greenlamp.svg);
-	width: 15px;
-	height: 15px;
-}
-QRadioButton:indicator:unchecked
-{
-	image: url(:/Mnemoscheme/icons/redlamp.svg);
-	width: 15px;
-	height: 15px;
-}</string>
-   </property>
-   <property name="iconSize">
-    <size>
-     <width>50</width>
-     <height>50</height>
-    </size>
-   </property>
-   <property name="checkable">
-    <bool>true</bool>
-   </property>
-   <property name="checked">
-    <bool>false</bool>
-   </property>
-  </widget>
-  <widget class="QRadioButton" name="output_valve_led">
-   <property name="geometry">
-    <rect>
-     <x>503</x>
-     <y>321</y>
-     <width>16</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QRadioButton
-{
-	color: red;
-}
-QRadioButton:indicator:checked
-{
-	image: url(:/Mnemoscheme/icons/greenlamp.svg);
-	width: 15px;
-	height: 15px;
-}
-QRadioButton:indicator:unchecked
-{
-	image: url(:/Mnemoscheme/icons/redlamp.svg);
-	width: 15px;
-	height: 15px;
-}</string>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-   <property name="iconSize">
-    <size>
-     <width>50</width>
-     <height>50</height>
-    </size>
-   </property>
-   <property name="checkable">
-    <bool>true</bool>
-   </property>
-   <property name="checked">
-    <bool>false</bool>
-   </property>
-  </widget>
   <widget class="QLabel" name="mnemoscheme">
    <property name="geometry">
     <rect>
@@ -171,135 +45,6 @@ QRadioButton:indicator:unchecked
    </property>
    <property name="margin">
     <number>50</number>
-   </property>
-  </widget>
-  <widget class="QRadioButton" name="output_pump_led">
-   <property name="geometry">
-    <rect>
-     <x>565</x>
-     <y>320</y>
-     <width>16</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QRadioButton
-{
-	color: red;
-}
-QRadioButton:indicator:checked
-{
-	image: url(:/Mnemoscheme/icons/greenlamp.svg);
-	width: 15px;
-	height: 15px;
-}
-QRadioButton:indicator:unchecked
-{
-	image: url(:/Mnemoscheme/icons/redlamp.svg);
-	width: 15px;
-	height: 15px;
-}</string>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-   <property name="iconSize">
-    <size>
-     <width>50</width>
-     <height>50</height>
-    </size>
-   </property>
-   <property name="checkable">
-    <bool>true</bool>
-   </property>
-   <property name="checked">
-    <bool>false</bool>
-   </property>
-  </widget>
-  <widget class="QRadioButton" name="high_level_led">
-   <property name="geometry">
-    <rect>
-     <x>270</x>
-     <y>226</y>
-     <width>16</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QRadioButton
-{
-	color: red;
-}
-QRadioButton:indicator:checked
-{
-	image: url(:/Mnemoscheme/icons/greenlamp.svg);
-	width: 15px;
-	height: 15px;
-}
-QRadioButton:indicator:unchecked
-{
-	image: url(:/Mnemoscheme/icons/redlamp.svg);
-	width: 15px;
-	height: 15px;
-}</string>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-   <property name="iconSize">
-    <size>
-     <width>50</width>
-     <height>50</height>
-    </size>
-   </property>
-   <property name="checkable">
-    <bool>true</bool>
-   </property>
-   <property name="checked">
-    <bool>false</bool>
-   </property>
-  </widget>
-  <widget class="QRadioButton" name="low_level_led">
-   <property name="geometry">
-    <rect>
-     <x>270</x>
-     <y>339</y>
-     <width>16</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QRadioButton
-{
-	color: red;
-}
-QRadioButton:indicator:checked
-{
-	image: url(:/Mnemoscheme/icons/greenlamp.svg);
-	width: 15px;
-	height: 15px;
-}
-QRadioButton:indicator:unchecked
-{
-	image: url(:/Mnemoscheme/icons/redlamp.svg);
-	width: 15px;
-	height: 15px;
-}</string>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-   <property name="iconSize">
-    <size>
-     <width>50</width>
-     <height>50</height>
-    </size>
-   </property>
-   <property name="checkable">
-    <bool>true</bool>
-   </property>
-   <property name="checked">
-    <bool>false</bool>
    </property>
   </widget>
   <widget class="QLCDNumber" name="temp_lcd">
@@ -337,49 +82,6 @@ QRadioButton:indicator:unchecked
    </property>
    <property name="intValue" stdset="0">
     <number>123</number>
-   </property>
-  </widget>
-  <widget class="QRadioButton" name="he_input_led">
-   <property name="geometry">
-    <rect>
-     <x>239</x>
-     <y>235</y>
-     <width>16</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QRadioButton
-{
-	color: red;
-}
-QRadioButton:indicator:checked
-{
-	image: url(:/Mnemoscheme/icons/greenlamp.svg);
-	width: 15px;
-	height: 15px;
-}
-QRadioButton:indicator:unchecked
-{
-	image: url(:/Mnemoscheme/icons/redlamp.svg);
-	width: 15px;
-	height: 15px;
-}</string>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-   <property name="iconSize">
-    <size>
-     <width>50</width>
-     <height>50</height>
-    </size>
-   </property>
-   <property name="checkable">
-    <bool>true</bool>
-   </property>
-   <property name="checked">
-    <bool>false</bool>
    </property>
   </widget>
   <widget class="QLCDNumber" name="pres_lcd">
@@ -437,101 +139,222 @@ QRadioButton:indicator:unchecked
     <number>123</number>
    </property>
   </widget>
-  <widget class="QRadioButton" name="he_output_led">
+  <widget class="QLabel" name="input_valve_led">
    <property name="geometry">
     <rect>
-     <x>270</x>
+     <x>266</x>
+     <y>178</y>
+     <width>16</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>20</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="1234.qrc">:/Mnemoscheme/icons/redlamp.svg</pixmap>
+   </property>
+   <property name="scaledContents">
+    <bool>false</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="high_level_led">
+   <property name="geometry">
+    <rect>
+     <x>274</x>
+     <y>226</y>
+     <width>16</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>20</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="1234.qrc">:/Mnemoscheme/icons/redlamp.svg</pixmap>
+   </property>
+   <property name="scaledContents">
+    <bool>false</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="he_input_led">
+   <property name="geometry">
+    <rect>
+     <x>239</x>
+     <y>234</y>
+     <width>16</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>20</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="1234.qrc">:/Mnemoscheme/icons/redlamp.svg</pixmap>
+   </property>
+   <property name="scaledContents">
+    <bool>false</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="he_output_led">
+   <property name="geometry">
+    <rect>
+     <x>269</x>
      <y>280</y>
      <width>16</width>
      <height>16</height>
     </rect>
    </property>
-   <property name="styleSheet">
-    <string notr="true">QRadioButton
-{
-	color: red;
-}
-QRadioButton:indicator:checked
-{
-	image: url(:/Mnemoscheme/icons/greenlamp.svg);
-	width: 15px;
-	height: 15px;
-}
-QRadioButton:indicator:unchecked
-{
-	image: url(:/Mnemoscheme/icons/redlamp.svg);
-	width: 15px;
-	height: 15px;
-}</string>
+   <property name="font">
+    <font>
+     <pointsize>20</pointsize>
+    </font>
    </property>
    <property name="text">
     <string/>
    </property>
-   <property name="iconSize">
-    <size>
-     <width>50</width>
-     <height>50</height>
-    </size>
+   <property name="pixmap">
+    <pixmap resource="1234.qrc">:/Mnemoscheme/icons/redlamp.svg</pixmap>
    </property>
-   <property name="checkable">
-    <bool>true</bool>
-   </property>
-   <property name="checked">
+   <property name="scaledContents">
     <bool>false</bool>
    </property>
   </widget>
-  <widget class="QRadioButton" name="co2_valve_led">
+  <widget class="QLabel" name="he_pump_led">
    <property name="geometry">
     <rect>
-     <x>401</x>
-     <y>116</y>
+     <x>194</x>
+     <y>280</y>
      <width>16</width>
      <height>16</height>
     </rect>
    </property>
-   <property name="styleSheet">
-    <string notr="true">QRadioButton
-{
-	color: red;
-}
-QRadioButton:indicator:checked
-{
-	image: url(:/Mnemoscheme/icons/greenlamp.svg);
-	width: 15px;
-	height: 15px;
-}
-QRadioButton:indicator:unchecked
-{
-	image: url(:/Mnemoscheme/icons/redlamp.svg);
-	width: 15px;
-	height: 15px;
-}</string>
+   <property name="font">
+    <font>
+     <pointsize>20</pointsize>
+    </font>
    </property>
-   <property name="iconSize">
-    <size>
-     <width>50</width>
-     <height>50</height>
-    </size>
+   <property name="text">
+    <string/>
    </property>
-   <property name="checkable">
-    <bool>true</bool>
+   <property name="pixmap">
+    <pixmap resource="1234.qrc">:/Mnemoscheme/icons/redlamp.svg</pixmap>
    </property>
-   <property name="checked">
+   <property name="scaledContents">
     <bool>false</bool>
    </property>
   </widget>
-  <zorder>mnemoscheme</zorder>
-  <zorder>he_pump_led</zorder>
-  <zorder>input_valve_led</zorder>
-  <zorder>output_valve_led</zorder>
-  <zorder>output_pump_led</zorder>
-  <zorder>high_level_led</zorder>
-  <zorder>low_level_led</zorder>
-  <zorder>temp_lcd</zorder>
-  <zorder>he_input_led</zorder>
-  <zorder>pres_lcd</zorder>
-  <zorder>he_output_led</zorder>
-  <zorder>co2_valve_led</zorder>
+  <widget class="QLabel" name="low_level_led">
+   <property name="geometry">
+    <rect>
+     <x>273</x>
+     <y>340</y>
+     <width>16</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>20</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="1234.qrc">:/Mnemoscheme/icons/redlamp.svg</pixmap>
+   </property>
+   <property name="scaledContents">
+    <bool>false</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="output_valve_led">
+   <property name="geometry">
+    <rect>
+     <x>502</x>
+     <y>322</y>
+     <width>16</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>20</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="1234.qrc">:/Mnemoscheme/icons/redlamp.svg</pixmap>
+   </property>
+   <property name="scaledContents">
+    <bool>false</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="output_pump_led">
+   <property name="geometry">
+    <rect>
+     <x>564</x>
+     <y>322</y>
+     <width>16</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>20</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="1234.qrc">:/Mnemoscheme/icons/redlamp.svg</pixmap>
+   </property>
+   <property name="scaledContents">
+    <bool>false</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="co2_valve_led">
+   <property name="geometry">
+    <rect>
+     <x>403</x>
+     <y>115</y>
+     <width>16</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>20</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="1234.qrc">:/Mnemoscheme/icons/redlamp.svg</pixmap>
+   </property>
+   <property name="scaledContents">
+    <bool>false</bool>
+   </property>
+  </widget>
  </widget>
  <resources>
   <include location="1234.qrc"/>

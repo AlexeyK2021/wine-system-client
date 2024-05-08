@@ -59,13 +59,72 @@
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>801</width>
-      <height>551</height>
+      <width>851</width>
+      <height>591</height>
      </rect>
     </property>
    </widget>
+   <widget class="QWidget" name="verticalLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>20</y>
+      <width>251</width>
+      <height>95</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <item>
+      <widget class="QLabel" name="label">
+       <property name="font">
+        <font>
+         <pointsize>14</pointsize>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Текущий процесс</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="curr_process">
+       <property name="font">
+        <font>
+         <pointsize>14</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="activate">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Инициализация ёмкости</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
    <zorder>tabWidget</zorder>
    <zorder>pushButton</zorder>
+   <zorder>verticalLayoutWidget</zorder>
   </widget>
  </widget>
  <resources>

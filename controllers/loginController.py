@@ -1,6 +1,6 @@
 from PyQt6.QtWidgets import QDialog, QMainWindow
 
-from controllers.apiController import auth, check_admin
+from controllers.apiController import auth
 from pages.loginPage import Ui_LoginWindow
 from pages.loginPageDialog import Ui_ErrorLoginDialog
 
@@ -14,9 +14,7 @@ def hash_text(text):
 
 
 class LoginPage(QMainWindow):
-    # on_admin_enter = None
     on_operator_enter = None
-    # on_sandbox = None
 
     def __init__(self):
         super(LoginPage, self).__init__()

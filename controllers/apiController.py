@@ -1,20 +1,14 @@
-import asyncio
-from threading import Thread
-from time import sleep
+import json
 
-import numpy as np
 import requests
-import websockets
 
-from config import API_PORT, API_IP, LOGIN_AS
+from config import API_PORT, API_IP
 from models.Tank import Tank
 
 API_URL = f"http://{API_IP}:{API_PORT}/api/"
 
 
 def auth(login, passwd):
-    if LOGIN_AS != "":
-        return True
     result = requests.get(API_URL + f"auth/login={login}&passwd={passwd}")
     if result.status_code == 200:
         return 1
@@ -24,23 +18,21 @@ def auth(login, passwd):
         return -1
 
 
-def check_admin(login):
-    if LOGIN_AS == "admin":
-        return True
-    elif LOGIN_AS == "operator":
-        return False
-    result = requests.get(API_URL + f"user/check/{login}")
-    if result.status_code == 200:
-        return result.json()["admin"]
-    return False
+# def check_admin(login):
+#     result = requests.get(API_URL + f"user/check/{login}")
+#     if result.status_code == 200:
+#         return result.json()["admin"]
+#     return False
 
 
 def get_tanks():
-    return [
-        Tank(id=1, name="ЕББ1", type_id=1),
-        Tank(id=2, name="ЕТБ1", type_id=2),
-        Tank(id=3, name="ЕТБ2", type_id=2),
-    ]
+    # return [
+    #     Tank(id=1, name="ЕББ1", type_id=1),
+    #     Tank(id=2, name="ЕТБ1", type_id=2),
+    #     Tank(id=3, name="ЕТБ2", type_id=2),
+    # ]
+    result = requests.get(API_URL + f"tanks")
+    return result.json()
 
 
 # async def get_tank_info_ws(tank_id):
@@ -54,3 +46,5 @@ def get_tanks():
 # def get_current_tank_state(tank_name):
 #     pass
 
+if __name__ == '__main__':
+    pass
