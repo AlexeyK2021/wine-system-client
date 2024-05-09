@@ -3,7 +3,6 @@ import json
 import requests
 
 from config import API_PORT, API_IP
-from models.Tank import Tank
 
 API_URL = f"http://{API_IP}:{API_PORT}/api/"
 
@@ -33,6 +32,16 @@ def get_tanks():
     # ]
     result = requests.get(API_URL + f"tanks")
     return result.json()
+
+
+def activate_tank(tank_id):
+    result = requests.get(API_URL + f"process/start/tank={tank_id}")
+    print(result.text)
+
+
+def emergency_stop(tank_id):
+    result = requests.get(API_URL + f"process/stop/tank={tank_id}")
+    print(result.text)
 
 
 # async def get_tank_info_ws(tank_id):

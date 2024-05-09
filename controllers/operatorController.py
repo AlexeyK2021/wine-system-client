@@ -1,15 +1,19 @@
 import json
 import threading
+from time import sleep
+
 import websocket
 
 from PyQt6 import QtGui
 from PyQt6.QtWidgets import QMainWindow, QWidget
 from websocket import WebSocketConnectionClosedException
+
 from config import API_IP, API_PORT
-from controllers.apiController import get_tanks
+from controllers.apiController import get_tanks, activate_tank, emergency_stop
 from pages.ff_widget import Ui_FF_Widget
 from pages.operatorPage import Ui_OperatorWindow
 from pages.sf_widget import Ui_SF_Widget
+import pages.resources
 
 
 class OperatorPage(QMainWindow):
@@ -30,6 +34,16 @@ class OperatorPage(QMainWindow):
                 self.tabs.append(sf)
 
         # self.ui.tabWidget.currentChanged.connect(self.indexChanged)
+        self.ui.stop.clicked.connect(
+            lambda: emergency_stop(
+                self.tanks[self.ui.tabWidget.currentIndex()]['id'],
+            )
+        )
+        self.ui.activate.clicked.connect(
+            lambda: activate_tank(
+                self.tanks[self.ui.tabWidget.currentIndex()]['id']
+            )
+        )
 
         websocket.enableTrace(True)
         self.ws = websocket.create_connection(f"ws://{API_IP}:{API_PORT}/api/tanks/ws")
@@ -46,8 +60,12 @@ class OperatorPage(QMainWindow):
                 self.update_ui(data)
             except WebSocketConnectionClosedException:
                 print("Error websocket connection")
+            sleep(0.5)
 
     def update_ui(self, data):
+        self.ui.activate.setEnabled(data["process_id"] == 9)
+            
+        self.ui.curr_process.setText(data["process_name"])
         ui = self.tabs[self.ui.tabWidget.currentIndex()].ui
 
         ui.temp_lcd.display(data["params"]["Temperature"])

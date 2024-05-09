@@ -1,4 +1,4 @@
-# Form implementation generated from reading ui file 'designs/operatorPage.ui'
+# Form implementation generated from reading ui file '.\designs\operatorPage.ui'
 #
 # Created by: PyQt6 UI code generator 6.7.0
 #
@@ -10,68 +10,69 @@ from PyQt6 import QtCore, QtGui, QtWidgets
 
 
 class Ui_OperatorWindow(object):
-	def setupUi(self, OperatorWindow):
-		OperatorWindow.setObjectName("OperatorWindow")
-		OperatorWindow.resize(800, 600)
-		OperatorWindow.setMinimumSize(QtCore.QSize(800, 600))
-		OperatorWindow.setMaximumSize(QtCore.QSize(800, 600))
-		OperatorWindow.setAcceptDrops(True)
-		self.centralwidget = QtWidgets.QWidget(parent=OperatorWindow)
-		self.centralwidget.setObjectName("centralwidget")
-		self.pushButton = QtWidgets.QPushButton(parent=self.centralwidget)
-		self.pushButton.setGeometry(QtCore.QRect(0, 550, 800, 51))
-		self.pushButton.setStyleSheet("QPushButton\n"
+    def setupUi(self, OperatorWindow):
+        OperatorWindow.setObjectName("OperatorWindow")
+        OperatorWindow.resize(800, 600)
+        OperatorWindow.setMinimumSize(QtCore.QSize(800, 600))
+        OperatorWindow.setMaximumSize(QtCore.QSize(800, 600))
+        OperatorWindow.setAcceptDrops(True)
+        self.centralwidget = QtWidgets.QWidget(parent=OperatorWindow)
+        self.centralwidget.setObjectName("centralwidget")
+        self.stop = QtWidgets.QPushButton(parent=self.centralwidget)
+        self.stop.setGeometry(QtCore.QRect(0, 550, 800, 51))
+        self.stop.setStyleSheet("QPushButton\n"
 "{\n"
-"	background-color: red;\n"
-"	font: 700 16pt \"Segoe UI\";\n"
+"    background-color: red;\n"
+"    font: 700 16pt \"Segoe UI\";\n"
 "}\n"
 "\n"
 "")
-		self.pushButton.setCheckable(False)
-		self.pushButton.setObjectName("pushButton")
-		self.tabWidget = QtWidgets.QTabWidget(parent=self.centralwidget)
-		self.tabWidget.setGeometry(QtCore.QRect(0, 0, 851, 591))
-		self.tabWidget.setObjectName("tabWidget")
-		self.verticalLayoutWidget = QtWidgets.QWidget(parent=self.centralwidget)
-		self.verticalLayoutWidget.setGeometry(QtCore.QRect(10, 20, 251, 95))
-		self.verticalLayoutWidget.setObjectName("verticalLayoutWidget")
-		self.verticalLayout = QtWidgets.QVBoxLayout(self.verticalLayoutWidget)
-		self.verticalLayout.setContentsMargins(0, 0, 0, 0)
-		self.verticalLayout.setObjectName("verticalLayout")
-		self.label = QtWidgets.QLabel(parent=self.verticalLayoutWidget)
-		font = QtGui.QFont()
-		font.setPointSize(14)
-		font.setBold(False)
-		self.label.setFont(font)
-		self.label.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
-		self.label.setObjectName("label")
-		self.verticalLayout.addWidget(self.label)
-		self.curr_process = QtWidgets.QLabel(parent=self.verticalLayoutWidget)
-		font = QtGui.QFont()
-		font.setPointSize(14)
-		self.curr_process.setFont(font)
-		self.curr_process.setText("")
-		self.curr_process.setAlignment(QtCore.Qt.AlignmentFlag.AlignLeading|QtCore.Qt.AlignmentFlag.AlignLeft|QtCore.Qt.AlignmentFlag.AlignVCenter)
-		self.curr_process.setObjectName("curr_process")
-		self.verticalLayout.addWidget(self.curr_process)
-		self.activate = QtWidgets.QPushButton(parent=self.verticalLayoutWidget)
-		self.activate.setEnabled(False)
-		font = QtGui.QFont()
-		font.setPointSize(12)
-		self.activate.setFont(font)
-		self.activate.setObjectName("activate")
-		self.verticalLayout.addWidget(self.activate)
-		self.tabWidget.raise_()
-		self.pushButton.raise_()
-		self.verticalLayoutWidget.raise_()
-		OperatorWindow.setCentralWidget(self.centralwidget)
+        self.stop.setCheckable(False)
+        self.stop.setObjectName("stop")
+        self.tabWidget = QtWidgets.QTabWidget(parent=self.centralwidget)
+        self.tabWidget.setGeometry(QtCore.QRect(0, 0, 851, 591))
+        self.tabWidget.setObjectName("tabWidget")
+        self.verticalLayoutWidget = QtWidgets.QWidget(parent=self.centralwidget)
+        self.verticalLayoutWidget.setGeometry(QtCore.QRect(10, 20, 331, 131))
+        self.verticalLayoutWidget.setObjectName("verticalLayoutWidget")
+        self.verticalLayout = QtWidgets.QVBoxLayout(self.verticalLayoutWidget)
+        self.verticalLayout.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout.setObjectName("verticalLayout")
+        self.label = QtWidgets.QLabel(parent=self.verticalLayoutWidget)
+        font = QtGui.QFont()
+        font.setPointSize(14)
+        font.setBold(False)
+        self.label.setFont(font)
+        self.label.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
+        self.label.setObjectName("label")
+        self.verticalLayout.addWidget(self.label)
+        self.curr_process = QtWidgets.QLabel(parent=self.verticalLayoutWidget)
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.curr_process.setFont(font)
+        self.curr_process.setText("")
+        self.curr_process.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
+        self.curr_process.setWordWrap(True)
+        self.curr_process.setObjectName("curr_process")
+        self.verticalLayout.addWidget(self.curr_process)
+        self.activate = QtWidgets.QPushButton(parent=self.verticalLayoutWidget)
+        self.activate.setEnabled(False)
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.activate.setFont(font)
+        self.activate.setObjectName("activate")
+        self.verticalLayout.addWidget(self.activate)
+        self.tabWidget.raise_()
+        self.stop.raise_()
+        self.verticalLayoutWidget.raise_()
+        OperatorWindow.setCentralWidget(self.centralwidget)
 
-		self.retranslateUi(OperatorWindow)
-		QtCore.QMetaObject.connectSlotsByName(OperatorWindow)
+        self.retranslateUi(OperatorWindow)
+        QtCore.QMetaObject.connectSlotsByName(OperatorWindow)
 
-	def retranslateUi(self, OperatorWindow):
-		_translate = QtCore.QCoreApplication.translate
-		OperatorWindow.setWindowTitle(_translate("OperatorWindow", "MainWindow"))
-		self.pushButton.setText(_translate("OperatorWindow", "Экстренная остановка"))
-		self.label.setText(_translate("OperatorWindow", "Текущий процесс"))
-		self.activate.setText(_translate("OperatorWindow", "Инициализация ёмкости"))
+    def retranslateUi(self, OperatorWindow):
+        _translate = QtCore.QCoreApplication.translate
+        OperatorWindow.setWindowTitle(_translate("OperatorWindow", "MainWindow"))
+        self.stop.setText(_translate("OperatorWindow", "Экстренная остановка"))
+        self.label.setText(_translate("OperatorWindow", "Текущий процесс"))
+        self.activate.setText(_translate("OperatorWindow", "Инициализация ёмкости"))
