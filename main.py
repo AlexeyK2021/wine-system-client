@@ -1,7 +1,11 @@
 import sys
+import threading
+
+import websocket
 from PyQt6 import QtWidgets
 from PyQt6.QtWidgets import QStackedWidget
 
+from config import API_IP, API_PORT
 from controllers.loginController import LoginPage
 from controllers.operatorController import OperatorPage
 
@@ -16,6 +20,9 @@ def on_login(login):
     print(login)
     operator_page.user_login = login
     win.setCurrentIndex(1)
+    websocket.enableTrace(True)
+    operator_page.ws = websocket.create_connection(f"ws://{API_IP}:{API_PORT}/api/tanks/ws")
+    threading.Thread(target=operator_page.get_data).start()
 
 
 if __name__ == '__main__':

@@ -19,6 +19,7 @@ import pages.resources
 
 class OperatorPage(QMainWindow):
     user_login = None
+    ws = None
 
     def __init__(self):
         super(OperatorPage, self).__init__()
@@ -48,10 +49,6 @@ class OperatorPage(QMainWindow):
                 self.user_login
             )
         )
-
-        websocket.enableTrace(True)
-        self.ws = websocket.create_connection(f"ws://{API_IP}:{API_PORT}/api/tanks/ws")
-        threading.Thread(target=self.get_data).start()
 
     def get_data(self):
         while True:
