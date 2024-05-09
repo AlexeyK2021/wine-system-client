@@ -31,7 +31,7 @@ class LoginPage(QMainWindow):
         self.ui.label.adjustSize()
         result = auth(login, hash_text(passwd))
         if result == 1:
-            self.on_operator_enter()
+            self.on_operator_enter(login)
         elif result == 0:
             dlg = LoginPageDialog()
             dlg.exec()

@@ -1,7 +1,4 @@
-import json
-
 import requests
-
 from config import API_PORT, API_IP
 
 API_URL = f"http://{API_IP}:{API_PORT}/api/"
@@ -17,13 +14,6 @@ def auth(login, passwd):
         return -1
 
 
-# def check_admin(login):
-#     result = requests.get(API_URL + f"user/check/{login}")
-#     if result.status_code == 200:
-#         return result.json()["admin"]
-#     return False
-
-
 def get_tanks():
     # return [
     #     Tank(id=1, name="ЕББ1", type_id=1),
@@ -34,26 +24,15 @@ def get_tanks():
     return result.json()
 
 
-def activate_tank(tank_id):
-    result = requests.get(API_URL + f"process/start/tank={tank_id}")
+def activate_tank(tank_id, user_login):
+    result = requests.get(API_URL + f"process/start/tank={tank_id}&user={user_login}")
     print(result.text)
 
 
-def emergency_stop(tank_id):
-    result = requests.get(API_URL + f"process/stop/tank={tank_id}")
+def emergency_stop(tank_id, user_login):
+    result = requests.get(API_URL + f"process/stop/tank={tank_id}&user={user_login}")
     print(result.text)
 
-
-# async def get_tank_info_ws(tank_id):
-#     return websockets.connect(f"ws://localhost:5000/api/tank/{tank_id}/ws")
-
-
-# def get_current_temperature(tank_id):
-#     return np.random.normal()
-#
-#
-# def get_current_tank_state(tank_name):
-#     pass
 
 if __name__ == '__main__':
     pass

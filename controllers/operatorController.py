@@ -1,4 +1,5 @@
 import json
+import sys
 import threading
 from time import sleep
 
@@ -17,6 +18,8 @@ import pages.resources
 
 
 class OperatorPage(QMainWindow):
+    user_login = None
+
     def __init__(self):
         super(OperatorPage, self).__init__()
         self.ui = Ui_OperatorWindow()
@@ -33,15 +36,16 @@ class OperatorPage(QMainWindow):
                 self.ui.tabWidget.addTab(sf, t["name"])
                 self.tabs.append(sf)
 
-        # self.ui.tabWidget.currentChanged.connect(self.indexChanged)
         self.ui.stop.clicked.connect(
             lambda: emergency_stop(
                 self.tanks[self.ui.tabWidget.currentIndex()]['id'],
+                self.user_login
             )
         )
         self.ui.activate.clicked.connect(
             lambda: activate_tank(
-                self.tanks[self.ui.tabWidget.currentIndex()]['id']
+                self.tanks[self.ui.tabWidget.currentIndex()]['id'],
+                self.user_login
             )
         )
 
@@ -52,24 +56,29 @@ class OperatorPage(QMainWindow):
     def get_data(self):
         while True:
             index = self.ui.tabWidget.currentIndex()
+            tank_id = self.tanks[index]['id']
             try:
-                self.ws.send(f"{self.tanks[index]['id']}")
+                self.ws.send(f"{tank_id}")
                 text = self.ws.recv()
                 data = json.loads(text)
                 print(data)
-                self.update_ui(data)
+                if data["tank_id"] == tank_id:
+                    self.update_ui(data)
             except WebSocketConnectionClosedException:
                 print("Error websocket connection")
+                sys.exit()
             sleep(0.5)
 
     def update_ui(self, data):
         self.ui.activate.setEnabled(data["process_id"] == 9)
-            
+
         self.ui.curr_process.setText(data["process_name"])
         ui = self.tabs[self.ui.tabWidget.currentIndex()].ui
 
         ui.temp_lcd.display(data["params"]["Temperature"])
         ui.pres_lcd.display(data["params"]["Pressure"])
+        self.set_lamp(ui.high_level_led, data["params"]["High_Level_Sensor"])
+        self.set_lamp(ui.low_level_led, data["params"]["Low_Level_Sensor"])
 
         self.set_lamp(ui.input_valve_led, data["actuators"]["Input_Valve"])
         self.set_lamp(ui.he_input_led, data["actuators"]["HE_Input_Valve"])
