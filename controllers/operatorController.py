@@ -1,48 +1,110 @@
-from random import randint
+import json
+import sys
+import threading
+from time import sleep
 
-import numpy as np
-from PyQt6 import QtCore
-from PyQt6.QtWidgets import QMainWindow
-from pyqtgraph import QtWidgets, QtGui
-import pyqtgraph as pg
-from controllers.apiController import get_current_temperature
+import websocket
+
+from PyQt6 import QtGui
+from PyQt6.QtWidgets import QMainWindow, QWidget
+from websocket import WebSocketConnectionClosedException
+
+from config import API_IP, API_PORT
+from controllers.apiController import get_tanks, activate_tank, emergency_stop
+from pages.ff_widget import Ui_FF_Widget
 from pages.operatorPage import Ui_OperatorWindow
+from pages.sf_widget import Ui_SF_Widget
+import pages.resources
 
 
 class OperatorPage(QMainWindow):
+    user_login = None
+
     def __init__(self):
         super(OperatorPage, self).__init__()
         self.ui = Ui_OperatorWindow()
         self.ui.setupUi(self)
+        self.tanks = get_tanks()
+        self.tabs = []
+        for t in self.tanks:
+            if t["type_id"] == 1:
+                ff = FastFermentationWidget()
+                self.ui.tabWidget.addTab(ff, t["name"])
+                self.tabs.append(ff)
+            elif t["type_id"] == 2:
+                sf = SlowFermentationWidget()
+                self.ui.tabWidget.addTab(sf, t["name"])
+                self.tabs.append(sf)
 
-        self.ui.tank_selector.addItems({"hello": "World", "1234": 5})
-        self.x = 0
-        self.y = [get_current_temperature(1)]
+        self.ui.stop.clicked.connect(
+            lambda: emergency_stop(
+                self.tanks[self.ui.tabWidget.currentIndex()]['id'],
+                self.user_login
+            )
+        )
+        self.ui.activate.clicked.connect(
+            lambda: activate_tank(
+                self.tanks[self.ui.tabWidget.currentIndex()]['id'],
+                self.user_login
+            )
+        )
 
-        pen = pg.mkPen(color=(255, 0, 0))
-        self.data_line = self.ui.graph.plot(y=self.y, pen="g")
-        self.ui.graph.showGrid(x=True, y=True)
-        self.ui.graph.setBackground('w')
+        websocket.enableTrace(True)
+        self.ws = websocket.create_connection(f"ws://{API_IP}:{API_PORT}/api/tanks/ws")
+        threading.Thread(target=self.get_data).start()
 
-        # self.ui.graph.setBackground(self.palette().color(QtGui.QPalette.window))
-        # self.data_line.QPen('b', width=1)
-        # self.ui.graph.plot([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], [30, 32, 34, 32, 33, 31, 29, 32, 35, 45])
-        self.timer = QtCore.QTimer()
-        self.timer.setInterval(1000)
-        self.timer.timeout.connect(self.update_plot_data)
-        self.timer.start()
+    def get_data(self):
+        while True:
+            index = self.ui.tabWidget.currentIndex()
+            tank_id = self.tanks[index]['id']
+            try:
+                self.ws.send(f"{tank_id}")
+                text = self.ws.recv()
+                data = json.loads(text)
+                print(data)
+                if data["tank_id"] == tank_id:
+                    self.update_ui(data)
+            except WebSocketConnectionClosedException:
+                print("Error websocket connection")
+                sys.exit()
+            sleep(0.5)
 
-    def update_plot_data(self):
-        # self.x = self.x[1:]  # Remove the first y element.
-        # self.x.append(self.x[-1] + 1)  # Add a new value 1 higher than the last.
-        #
-        # self.y = self.y[1:]  # Remove the first
-        # self.y.append(randint(0, 100))  # Add a new random value.
-        #
-        # self.data_line.setData(self.x, self.y)  # Update the data.
+    def update_ui(self, data):
+        self.ui.activate.setEnabled(data["process_id"] == 9)
 
-        self.y[:-1] = self.y[1:]  # shift data in the array one sample left
-        self.y[-1] = get_current_temperature(1)
-        self.x += 1
-        self.data_line.setData(y=self.y)
-        self.data_line.setPos(self.x, 0)
+        self.ui.curr_process.setText(data["process_name"])
+        ui = self.tabs[self.ui.tabWidget.currentIndex()].ui
+
+        ui.temp_lcd.display(data["params"]["Temperature"])
+        ui.pres_lcd.display(data["params"]["Pressure"])
+        self.set_lamp(ui.high_level_led, data["params"]["High_Level_Sensor"])
+        self.set_lamp(ui.low_level_led, data["params"]["Low_Level_Sensor"])
+
+        self.set_lamp(ui.input_valve_led, data["actuators"]["Input_Valve"])
+        self.set_lamp(ui.he_input_led, data["actuators"]["HE_Input_Valve"])
+        self.set_lamp(ui.he_output_led, data["actuators"]["HE_Output_Valve"])
+        self.set_lamp(ui.he_pump_led, data["actuators"]["HE_Pump"])
+        self.set_lamp(ui.co2_valve_led, data["actuators"]["CO2_Valve"])
+        self.set_lamp(ui.output_pump_led, data["actuators"]["Output_Pump"])
+        self.set_lamp(ui.output_valve_led, data["actuators"]["Output_Valve"])
+        pass
+
+    def set_lamp(self, lamp, value):
+        if value:
+            lamp.setPixmap(QtGui.QPixmap(":/Mnemoscheme/icons/greenlamp.svg"))
+        else:
+            lamp.setPixmap(QtGui.QPixmap(":/Mnemoscheme/icons/redlamp.svg"))
+
+
+class FastFermentationWidget(QWidget):
+    def __init__(self, parent=None):
+        super().__init__(parent)
+        self.ui = Ui_FF_Widget()
+        self.ui.setupUi(self)
+
+
+class SlowFermentationWidget(QWidget):
+    def __init__(self, parent=None):
+        super().__init__(parent)
+        self.ui = Ui_SF_Widget()
+        self.ui.setupUi(self)

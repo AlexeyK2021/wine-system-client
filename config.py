@@ -1,5 +1,2 @@
-API_IP = "127.0.0.1"
+API_IP = "192.168.1.101"
 API_PORT = "5000"
-
-#DEBUG
-LOGIN_AS = ""

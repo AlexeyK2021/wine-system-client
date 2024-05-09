@@ -1,14 +1,10 @@
-import numpy as np
 import requests
-
-from config import API_PORT, API_IP, LOGIN_AS
+from config import API_PORT, API_IP
 
 API_URL = f"http://{API_IP}:{API_PORT}/api/"
 
 
 def auth(login, passwd):
-    if LOGIN_AS != "":
-        return True
     result = requests.get(API_URL + f"auth/login={login}&passwd={passwd}")
     if result.status_code == 200:
         return 1
@@ -18,16 +14,25 @@ def auth(login, passwd):
         return -1
 
 
-def check_admin(login):
-    if LOGIN_AS == "admin":
-        return True
-    elif LOGIN_AS == "operator":
-        return False
-    result = requests.get(API_URL + f"user/check/{login}")
-    if result.status_code == 200:
-        return result.json()["admin"]
-    return False
+def get_tanks():
+    # return [
+    #     Tank(id=1, name="ЕББ1", type_id=1),
+    #     Tank(id=2, name="ЕТБ1", type_id=2),
+    #     Tank(id=3, name="ЕТБ2", type_id=2),
+    # ]
+    result = requests.get(API_URL + f"tanks")
+    return result.json()
 
 
-def get_current_temperature(tank_id):
-    return np.random.normal()
+def activate_tank(tank_id, user_login):
+    result = requests.get(API_URL + f"process/start/tank={tank_id}&user={user_login}")
+    print(result.text)
+
+
+def emergency_stop(tank_id, user_login):
+    result = requests.get(API_URL + f"process/stop/tank={tank_id}&user={user_login}")
+    print(result.text)
+
+
+if __name__ == '__main__':
+    pass

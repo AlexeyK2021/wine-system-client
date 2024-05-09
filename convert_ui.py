@@ -10,7 +10,7 @@ def convert_ui():
         if file[-3:] == ".ui":
             # subprocess.run(["pyuic6", f"designs/{file}", "-o", f"pages/{file[:-3]}.py"], capture_output=True)
             # subprocess.run(["echo", "\"Hello World!\""])
-            pyuic.generate(f"designs/{file}", f"pages/{file[:-3]}.py", 0, None)
+            pyuic.generate(f"designs/{file}", f"pages/{file[:-3]}.py", 0, None, 1)
 
 
 if __name__ == '__main__':

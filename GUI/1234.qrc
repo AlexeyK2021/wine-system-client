@@ -1,7 +1,0 @@
-<RCC>
-  <qresource prefix="Mnemoscheme">
-    <file>greenlamp.svg</file>
-    <file>redlamp.svg</file>
-    <file>тб.svg</file>
-  </qresource>
-</RCC>

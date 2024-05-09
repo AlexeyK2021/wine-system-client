@@ -2,27 +2,26 @@ import sys
 from PyQt6 import QtWidgets
 from PyQt6.QtWidgets import QStackedWidget
 
-from controllers.adminController import AdminPage
 from controllers.loginController import LoginPage
 from controllers.operatorController import OperatorPage
-from controllers.sandboxController import SandBoxPage
+
+app = QtWidgets.QApplication(sys.argv)
+win = QStackedWidget()
+login_page = LoginPage()
+operator_page = OperatorPage()
+
+
+def on_login(login):
+    global win
+    print(login)
+    operator_page.user_login = login
+    win.setCurrentIndex(1)
+
 
 if __name__ == '__main__':
-    app = QtWidgets.QApplication(sys.argv)
-    win = QStackedWidget()
-
-    login_page = LoginPage()
-    admin_page = AdminPage()
-    # operator_page = OperatorPage()
-    sandbox = SandBoxPage()
-    login_page.on_admin_enter = lambda: win.setCurrentIndex(1)
-    # login_page.on_operator_enter = lambda: win.setCurrentIndex(2)
-    # login_page.on_sandbox = lambda: win.setCurrentIndex(3)
-
+    login_page.on_operator_enter = on_login
     win.addWidget(login_page)
-    win.addWidget(admin_page)
-    # win.addWidget(operator_page)
-    # win.addWidget(sandbox)
+    win.addWidget(operator_page)
 
     win.resize(800, 600)
     win.show()
