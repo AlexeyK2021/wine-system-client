@@ -11,6 +11,7 @@ from pages.operatorPage import Ui_OperatorWindow
 from pages.sf_widget import Ui_SF_Widget
 import pages.resources
 
+
 class OperatorPage(QMainWindow):
     user_login = None
     ws = None
@@ -52,7 +53,6 @@ class OperatorPage(QMainWindow):
                 self.ws.send(f"{tank_id}")
                 text = self.ws.recv()
                 data = json.loads(text)
-                print(data)
                 if data["tank_id"] == tank_id:
                     self.update_ui(data)
             except WebSocketConnectionClosedException:
@@ -77,7 +77,6 @@ class OperatorPage(QMainWindow):
         self.set_lamp(ui.co2_valve_led, data["actuators"]["CO2_Valve"])
         self.set_lamp(ui.output_pump_led, data["actuators"]["Output_Pump"])
         self.set_lamp(ui.output_valve_led, data["actuators"]["Output_Valve"])
-        pass
 
     def set_lamp(self, lamp, value):
         if value == 1:
