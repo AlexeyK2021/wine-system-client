@@ -1,21 +1,15 @@
 import json
 import sys
-import threading
-from time import sleep
-
-import websocket
 
 from PyQt6 import QtGui
 from PyQt6.QtWidgets import QMainWindow, QWidget
 from websocket import WebSocketConnectionClosedException
 
-from config import API_IP, API_PORT
 from controllers.apiController import get_tanks, activate_tank, emergency_stop
 from pages.ff_widget import Ui_FF_Widget
 from pages.operatorPage import Ui_OperatorWindow
 from pages.sf_widget import Ui_SF_Widget
 import pages.resources
-
 
 class OperatorPage(QMainWindow):
     user_login = None
@@ -64,7 +58,6 @@ class OperatorPage(QMainWindow):
             except WebSocketConnectionClosedException:
                 print("Error websocket connection")
                 sys.exit()
-            sleep(0.5)
 
     def update_ui(self, data):
         self.ui.activate.setEnabled(data["process_id"] == 9)
@@ -87,9 +80,9 @@ class OperatorPage(QMainWindow):
         pass
 
     def set_lamp(self, lamp, value):
-        if value:
+        if value == 1:
             lamp.setPixmap(QtGui.QPixmap(":/Mnemoscheme/icons/greenlamp.svg"))
-        else:
+        elif value == 0:
             lamp.setPixmap(QtGui.QPixmap(":/Mnemoscheme/icons/redlamp.svg"))
 
 

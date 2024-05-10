@@ -17,7 +17,6 @@ operator_page = OperatorPage()
 
 def on_login(login):
     global win
-    print(login)
     operator_page.user_login = login
     win.setCurrentIndex(1)
     websocket.enableTrace(True)
@@ -33,6 +32,7 @@ class MainWindow(QMainWindow):
         win.addWidget(operator_page)
 
         win.resize(800, 600)
+        win.setWindowTitle("Приложение оператора ИУС брожения виноматериалов")
         win.show()
 
     def closeEvent(self, a0):
