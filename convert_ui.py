@@ -1,5 +1,3 @@
-import os
-import subprocess
 from os import listdir
 
 from PyQt6.uic import pyuic

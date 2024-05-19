@@ -72,7 +72,7 @@ class Ui_OperatorWindow(object):
 
     def retranslateUi(self, OperatorWindow):
         _translate = QtCore.QCoreApplication.translate
-        OperatorWindow.setWindowTitle(_translate("OperatorWindow", "MainWindow"))
+        OperatorWindow.setWindowTitle(_translate("OperatorWindow", "Главное окно"))
         self.stop.setText(_translate("OperatorWindow", "Экстренная остановка"))
         self.label.setText(_translate("OperatorWindow", "Текущий процесс"))
         self.activate.setText(_translate("OperatorWindow", "Инициализация ёмкости"))

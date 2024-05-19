@@ -15,24 +15,13 @@ def auth(login, passwd):
 
 
 def get_tanks():
-    # return [
-    #     Tank(id=1, name="ЕББ1", type_id=1),
-    #     Tank(id=2, name="ЕТБ1", type_id=2),
-    #     Tank(id=3, name="ЕТБ2", type_id=2),
-    # ]
     result = requests.get(API_URL + f"tanks")
     return result.json()
 
 
 def activate_tank(tank_id, user_login):
     result = requests.get(API_URL + f"process/start/tank={tank_id}&user={user_login}")
-    print(result.text)
 
 
 def emergency_stop(tank_id, user_login):
     result = requests.get(API_URL + f"process/stop/tank={tank_id}&user={user_login}")
-    print(result.text)
-
-
-if __name__ == '__main__':
-    pass
