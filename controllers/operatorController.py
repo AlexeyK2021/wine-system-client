@@ -2,13 +2,14 @@ import json
 import sys
 
 from PyQt6 import QtGui
-from PyQt6.QtWidgets import QMainWindow, QWidget
+from PyQt6.QtWidgets import QMainWindow, QWidget, QDialog, QDialogButtonBox, QVBoxLayout, QLabel, QPushButton
 from websocket import WebSocketConnectionClosedException
 
 from controllers.apiController import get_tanks, activate_tank, emergency_stop
 from pages.ff_widget import Ui_FF_Widget
 from pages.operatorPage import Ui_OperatorWindow
 from pages.sf_widget import Ui_SF_Widget
+import pages.resources
 
 
 class OperatorPage(QMainWindow):
@@ -21,16 +22,26 @@ class OperatorPage(QMainWindow):
         self.ui.setupUi(self)
 
         self.ui.stop.clicked.connect(
-            lambda: emergency_stop(
-                self.tanks[self.ui.tabWidget.currentIndex()]['id'],
-                self.user_login
-            )
+            # lambda: emergency_stop(
+            #     self.tanks[self.ui.tabWidget.currentIndex()]['id'],
+            #     self.user_login
+            # )
+            lambda: ApproveAction(
+                "Подтвердите остановку",
+                lambda: emergency_stop(
+                    self.tanks[self.ui.tabWidget.currentIndex()]['id'],
+                    self.user_login
+                )
+            ).exec()
         )
         self.ui.activate.clicked.connect(
-            lambda: activate_tank(
-                self.tanks[self.ui.tabWidget.currentIndex()]['id'],
-                self.user_login
-            )
+            lambda: ApproveAction(
+                "Подтвердите инициализацию",
+                lambda: activate_tank(
+                    self.tanks[self.ui.tabWidget.currentIndex()]['id'],
+                    self.user_login
+                )
+            ).exec()
         )
 
     def get_data(self):
@@ -98,3 +109,25 @@ class SlowFermentationWidget(QWidget):
         super().__init__(parent)
         self.ui = Ui_SF_Widget()
         self.ui.setupUi(self)
+
+
+class ApproveAction(QDialog):
+    def __init__(self, text, approve, parent=None):
+        super().__init__(parent)
+        self.approve = approve
+        self.setWindowTitle("Подтверждение действия")
+
+        self.layout = QVBoxLayout()
+        message = QLabel(text)
+
+        approve_btn = QPushButton()
+        approve_btn.setText("Подтверждаю")
+        approve_btn.clicked.connect(self.accepted)
+
+        self.layout.addWidget(message)
+        self.layout.addWidget(approve_btn)
+        self.setLayout(self.layout)
+
+    def accepted(self):
+        self.approve()
+        self.close()
