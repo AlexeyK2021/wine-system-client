@@ -9,7 +9,6 @@ from controllers.apiController import get_tanks, activate_tank, emergency_stop
 from pages.ff_widget import Ui_FF_Widget
 from pages.operatorPage import Ui_OperatorWindow
 from pages.sf_widget import Ui_SF_Widget
-import pages.resources
 
 
 class OperatorPage(QMainWindow):
@@ -20,17 +19,6 @@ class OperatorPage(QMainWindow):
         super(OperatorPage, self).__init__()
         self.ui = Ui_OperatorWindow()
         self.ui.setupUi(self)
-        self.tanks = get_tanks()
-        self.tabs = []
-        for t in self.tanks:
-            if t["type_id"] == 1:
-                ff = FastFermentationWidget()
-                self.ui.tabWidget.addTab(ff, t["name"])
-                self.tabs.append(ff)
-            elif t["type_id"] == 2:
-                sf = SlowFermentationWidget()
-                self.ui.tabWidget.addTab(sf, t["name"])
-                self.tabs.append(sf)
 
         self.ui.stop.clicked.connect(
             lambda: emergency_stop(
@@ -83,6 +71,19 @@ class OperatorPage(QMainWindow):
             lamp.setPixmap(QtGui.QPixmap(":/Mnemoscheme/icons/greenlamp.svg"))
         elif value == 0:
             lamp.setPixmap(QtGui.QPixmap(":/Mnemoscheme/icons/redlamp.svg"))
+
+    def on_enter(self):
+        self.tanks = get_tanks()
+        self.tabs = []
+        for t in self.tanks:
+            if t["type_id"] == 1:
+                ff = FastFermentationWidget()
+                self.ui.tabWidget.addTab(ff, t["name"])
+                self.tabs.append(ff)
+            elif t["type_id"] == 2:
+                sf = SlowFermentationWidget()
+                self.ui.tabWidget.addTab(sf, t["name"])
+                self.tabs.append(sf)
 
 
 class FastFermentationWidget(QWidget):

@@ -18,6 +18,7 @@ operator_page = OperatorPage()
 def on_login(login):
     global win
     operator_page.user_login = login
+    operator_page.on_enter()
     win.setCurrentIndex(1)
     websocket.enableTrace(True)
     operator_page.ws = websocket.create_connection(f"ws://{API_IP}:{API_PORT}/api/tanks/ws")
